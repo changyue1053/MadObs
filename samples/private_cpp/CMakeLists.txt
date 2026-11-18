@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.20)
+project(MadObsPrivateConsumer LANGUAGES C CXX)
+find_package(MadObs 0.1.0 EXACT REQUIRED)
+add_executable(consumer main.cc)
+set_target_properties(consumer PROPERTIES CXX_STANDARD 11 CXX_STANDARD_REQUIRED YES CXX_EXTENSIONS NO)
+target_compile_options(consumer PRIVATE -Wall -Wextra -Wpedantic -Werror)
+target_link_libraries(consumer PRIVATE MadObs::runtime)

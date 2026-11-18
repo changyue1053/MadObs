@@ -1,0 +1,8 @@
+[ 50%] Building C object CMakeFiles/consumer.dir/main.c.o
+[100%] Linking CXX executable consumer
+[100%] Built target consumer
+Installed strict C-source private ABI consumer: exit 0
+[ 50%] Building CXX object CMakeFiles/consumer.dir/main.cc.o
+[100%] Linking CXX executable consumer
+[100%] Built target consumer
+Installed strict C++11 private consumer: exit 0

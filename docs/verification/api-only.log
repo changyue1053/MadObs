@@ -1,0 +1,14 @@
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/shared/MadObs/build-api
+[ 50%] Built target test_madobs_api
+[100%] Built target test_madobs_api_cpp
+Test project /workspace/shared/MadObs/build-api
+    Start 1: madobs_api_c
+1/2 Test #1: madobs_api_c .....................   Passed    0.00 sec
+    Start 2: madobs_api_cpp
+2/2 Test #2: madobs_api_cpp ...................   Passed    0.00 sec
+
+100% tests passed out of 2
+
+Total Test time (real) =   0.00 sec

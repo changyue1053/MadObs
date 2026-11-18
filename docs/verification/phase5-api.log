@@ -1,0 +1,17 @@
+Test project /workspace/shared/MadObs/build-api
+    Start 1: madobs_privacy_strict
+1/6 Test #1: madobs_privacy_strict ............   Passed    0.00 sec
+    Start 2: madobs_privacy_noexceptions
+2/6 Test #2: madobs_privacy_noexceptions ......   Passed    0.00 sec
+    Start 3: madobs_privacy
+3/6 Test #3: madobs_privacy ...................   Passed    0.00 sec
+    Start 4: madobs_api_c
+4/6 Test #4: madobs_api_c .....................   Passed    0.00 sec
+    Start 5: madobs_api_cpp
+5/6 Test #5: madobs_api_cpp ...................   Passed    0.00 sec
+    Start 6: madobs_api_noexceptions
+6/6 Test #6: madobs_api_noexceptions ..........   Passed    0.00 sec
+
+100% tests passed out of 6
+
+Total Test time (real) =   0.01 sec

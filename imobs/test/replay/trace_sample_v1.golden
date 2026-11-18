@@ -1,0 +1,7 @@
+batch=1 records=3 ingested=3
+batch=2 records=3 ingested=4
+batch=3 records=1 ingested=2
+journeys=3 trace_events=9
+msg=0xbee stages=0,1,4 complete=no missing=2
+msg=0xcafe stages=2 complete=no missing=0,1,4
+msg=0xa11ce stages=0,1,2,4 complete=yes

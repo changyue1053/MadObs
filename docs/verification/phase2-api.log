@@ -1,0 +1,23 @@
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/shared/MadObs/build-api
+[ 16%] Building C object CMakeFiles/test_madobs_api.dir/tests/contract/test_api.c.o
+[ 33%] Linking C executable test_madobs_api
+[ 33%] Built target test_madobs_api
+[ 50%] Building CXX object CMakeFiles/test_madobs_api_cpp.dir/tests/contract/test_api_cpp.cc.o
+[ 66%] Linking CXX executable test_madobs_api_cpp
+[ 66%] Built target test_madobs_api_cpp
+[ 83%] Building CXX object CMakeFiles/test_madobs_api_noexceptions.dir/tests/contract/test_api_noexceptions.cc.o
+[100%] Linking CXX executable test_madobs_api_noexceptions
+[100%] Built target test_madobs_api_noexceptions
+Test project /workspace/shared/MadObs/build-api
+    Start 1: madobs_api_c
+1/3 Test #1: madobs_api_c .....................   Passed    0.00 sec
+    Start 2: madobs_api_cpp
+2/3 Test #2: madobs_api_cpp ...................   Passed    0.00 sec
+    Start 3: madobs_api_noexceptions
+3/3 Test #3: madobs_api_noexceptions ..........   Passed    0.00 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =   0.00 sec

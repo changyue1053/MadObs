@@ -1,0 +1,6 @@
+include("${CMAKE_CURRENT_LIST_DIR}/MadObsApiTargets.cmake")
+if(EXISTS "${CMAKE_CURRENT_LIST_DIR}/MadObsRuntimeTargets.cmake")
+  include(CMakeFindDependencyMacro)
+  find_dependency(ZLIB)
+  include("${CMAKE_CURRENT_LIST_DIR}/MadObsRuntimeTargets.cmake")
+endif()

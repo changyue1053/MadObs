@@ -1,0 +1,7 @@
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/madobs-p4-consumer
+[ 50%] Building CXX object CMakeFiles/consumer.dir/main.cc.o
+[100%] Linking CXX executable consumer
+[100%] Built target consumer
+Installed strict C++11 private consumer: exit 0

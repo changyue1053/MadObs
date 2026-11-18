@@ -1,0 +1,13 @@
+[ RUN      ] Regression.WorkerCompletionOnlyMutatesOnTick
+[       OK ] Regression.WorkerCompletionOnlyMutatesOnTick
+[ RUN      ] Regression.CompletionAfterHealerDestructionIsSafe
+[       OK ] Regression.CompletionAfterHealerDestructionIsSafe
+[ RUN      ] Regression.ControlDisabledWithoutExplicitSecret
+[       OK ] Regression.ControlDisabledWithoutExplicitSecret
+[ RUN      ] Regression.CleanupWorksWhileDisabled
+[       OK ] Regression.CleanupWorksWhileDisabled
+[ RUN      ] Regression.CompletionMailboxIsBoundedAndCounted
+[       OK ] Regression.CompletionMailboxIsBoundedAndCounted
+[ RUN      ] Regression.ForgedControlWithMissingOrDevelopmentKeyIsRejected
+[       OK ] Regression.ForgedControlWithMissingOrDevelopmentKeyIsRejected
+== 6 case(s), 0 failure(s)

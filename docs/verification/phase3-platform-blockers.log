@@ -1,0 +1,10 @@
+bash syntax: pass
+--- android ---
+/workspace/shared/MadObs/scripts/build-platform.sh: line 10: ANDROID_NDK_HOME: Set ANDROID_NDK_HOME to the installed official NDK
+exit=1 (SDK unavailable, expected nonzero)
+--- ios ---
+iOS build requires macOS and Xcode (xcrun)
+exit=2 (SDK unavailable, expected nonzero)
+--- ohos ---
+/workspace/shared/MadObs/scripts/build-platform.sh: line 18: OHOS_NATIVE_HOME: Set OHOS_NATIVE_HOME to the installed official native SDK
+exit=1 (SDK unavailable, expected nonzero)

@@ -1,0 +1,31 @@
+name: native-contracts
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [RelWithDebInfo, Release]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Native configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+      - name: Native build
+        run: cmake --build build --parallel 4
+      - name: Native tests
+        run: ctest --test-dir build --output-on-failure
+      - name: API-only configure/build/test
+        run: |
+          cmake -S . -B build-api -DMADOBS_BUILD_RUNTIME=OFF
+          cmake --build build-api --parallel 4
+          ctest --test-dir build-api --output-on-failure
+      - name: Installed package contracts
+        if: matrix.build_type == 'Release'
+        run: scripts/verify-installed.sh

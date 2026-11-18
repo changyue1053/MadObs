@@ -1,0 +1,17 @@
+[ 50%] Building C object CMakeFiles/consumer.dir/main.c.o
+[100%] Linking CXX executable consumer
+[100%] Built target consumer
+Runtime installed consumer: exit 0
+-- The C compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/madobs-p3-api-consumer
+[ 50%] Building C object CMakeFiles/madobs_api_consumer.dir/main.c.o
+[100%] Linking C executable madobs_api_consumer
+[100%] Built target madobs_api_consumer
+API-only installed C consumer: exit 0

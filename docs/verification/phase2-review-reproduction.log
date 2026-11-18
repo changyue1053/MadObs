@@ -1,0 +1,6 @@
+generic enqueued=100 drained=100 wal_dropped=84
+actual pipeline dropped=84 built=16
+start=0
+stop=0
+restart=8
+emit_after_restart=8

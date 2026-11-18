@@ -1,0 +1,5 @@
+[ 50%] Building C object CMakeFiles/consumer.dir/main.c.o
+[100%] Linking CXX executable consumer
+[100%] Built target consumer
+
+Installed Release consumer executed successfully (exit 0).

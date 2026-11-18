@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.20)
+project(MadObsApiConsumer LANGUAGES C)
+find_package(MadObs 0.1.0 EXACT REQUIRED)
+add_executable(madobs_api_consumer main.c)
+target_link_libraries(madobs_api_consumer PRIVATE MadObs::api)

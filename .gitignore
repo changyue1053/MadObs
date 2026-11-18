@@ -1,0 +1,32 @@
+# mad 五库基线 .gitignore（W16 R1-07 git 化）：只忽略构建输出 / 导出件 / IDE / 系统文件，源码与构建脚本一律入库。
+
+# ===== 构建输出（含 build-w12/testcert 之类测试证书目录，随构建目录一起不入库）=====
+build*/
+target/
+dist/
+out/
+third_party/*/build*
+cmake-build-*/
+
+# ===== 测试证书 / 密钥（gen_test_cert.sh 产物落在构建目录，此处双保险）=====
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+
+# ===== 文档导出件（同名 .html 是事实源，.pdf 为渲染产物，单个 4~5 MB）=====
+*.pdf
+
+# ===== IDE / 编辑器 / 工具缓存 =====
+.idea/
+.vscode/
+.fleet/
+*.iml
+.cache/
+compile_commands.json
+__pycache__/
+*.swp
+
+# ===== 系统文件 =====
+.DS_Store

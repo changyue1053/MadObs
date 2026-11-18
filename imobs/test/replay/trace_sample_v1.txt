@@ -1,0 +1,47 @@
+# imobs 回放样本 v1（架构 §18 test/replay/：脱敏轨迹样本 → 拼接器 golden 对照）
+#
+# 脱敏口径（架构 §16）：msg_id 全为合成值，无 uid/device_id/会话内容字段——
+# 样本只保留拼接语义所需的最小字段（消息、节点、状态、批内时延）。
+# 线上采样的真实批替换本文件时保持同一语法即可（格式版本随文件名 v1 演进）。
+#
+# 语法（行式，# 为注释；由 test_replay_stitcher.cc 解析并按 batch_view.h 契约
+# 构造线上批字节喂给 TraceStitcher）：
+#   require <stage...>                     旅程完整性判定的必经节点集（golden 的 complete 口径）
+#   batch <anchor_wall_ms> <anchor_mono_ns>  开新批 = 服务端视角一次到达（时钟锚点，架构 §6）
+#   chunk <base_mono_ns>                   批内开新 'T' 轨迹块（事件 ts 为相对 base 的 delta）
+#   ev <msg_id_hex> <stage> <status> <ts_delta_ns>   轨迹事件（status 0=OK 1=RETRY 2=FAIL）
+#   junk <hex字节流>                        塞一条损坏记录（拼接器契约：单块脏数据跳过不失败）
+#
+# 样本剧情（乱序/晚到/断链——"真实分布比构造用例更毒"的最小可信复刻）：
+#   0xA11CE  批内乱序（T1 先于 T0 到达）+ 跨批晚到（T2/T4 在很晚的批 3 才补全）+ 重复（T1 两见）
+#   0xBEE    断链（T0→T1→T4，缺 T2：complete=no missing=2）
+#   0xCAFE   孤链（仅 T2 一个中段节点：首尾皆断）
+#   junk     'T' 打头但截断的脏块（走 DecodeTraceChunk 失败分支，整批其余记录不受累）
+
+require 0 1 2 4
+
+# —— 批 1：早批。A11CE 批内乱序（T1 先到 T0）；BEE 起链；附一条脏块 ——
+batch 1000 100000
+chunk 100000
+ev 0xA11CE 1 0 500
+ev 0xA11CE 0 0 900
+chunk 110000
+ev 0xBEE 0 0 0
+junk 54ffffff
+
+# —— 批 2：BEE 跳过 T2 直达 T4（断链）；CAFE 孤链中段；A11CE 的 T1 重复到达 ——
+batch 2000 200000
+chunk 200000
+ev 0xBEE 1 0 100
+ev 0xBEE 4 0 5000
+chunk 210000
+ev 0xCAFE 2 0 0
+chunk 220000
+ev 0xA11CE 1 0 50
+
+# —— 批 3：晚到批（锚点 9000ms，远晚于事件语义时刻）。A11CE 补 T2/T4 成完整旅程；
+#          T2 带 status=FAIL（真实分布里失败节点照样入链）——
+batch 9000 900000
+chunk 900000
+ev 0xA11CE 2 2 10
+ev 0xA11CE 4 0 999

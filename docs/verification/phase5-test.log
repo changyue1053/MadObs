@@ -1,0 +1,83 @@
+Test project /workspace/shared/MadObs/build
+      Start  1: madobs_privacy_strict
+ 1/39 Test  #1: madobs_privacy_strict ............   Passed    0.00 sec
+      Start  2: madobs_privacy_noexceptions
+ 2/39 Test  #2: madobs_privacy_noexceptions ......   Passed    0.00 sec
+      Start  3: madobs_privacy
+ 3/39 Test  #3: madobs_privacy ...................   Passed    0.00 sec
+      Start  4: madobs_api_c
+ 4/39 Test  #4: madobs_api_c .....................   Passed    0.00 sec
+      Start  5: madobs_api_cpp
+ 5/39 Test  #5: madobs_api_cpp ...................   Passed    0.00 sec
+      Start  6: madobs_api_noexceptions
+ 6/39 Test  #6: madobs_api_noexceptions ..........   Passed    0.00 sec
+      Start  7: madobs_regressions
+ 7/39 Test  #7: madobs_regressions ...............   Passed    0.01 sec
+      Start  8: madobs_private_runtime
+ 8/39 Test  #8: madobs_private_runtime ...........   Passed    0.25 sec
+      Start  9: madobs_bridge
+ 9/39 Test  #9: madobs_bridge ....................   Passed    0.03 sec
+      Start 10: test_clock
+10/39 Test #10: test_clock .......................   Passed    0.00 sec
+      Start 11: test_event_ring
+11/39 Test #11: test_event_ring ..................   Passed    0.02 sec
+      Start 12: test_schema
+12/39 Test #12: test_schema ......................   Passed    0.00 sec
+      Start 13: test_metrics
+13/39 Test #13: test_metrics .....................   Passed    0.00 sec
+      Start 14: test_wal_ring
+14/39 Test #14: test_wal_ring ....................   Passed    0.00 sec
+      Start 15: test_tdigest
+15/39 Test #15: test_tdigest .....................   Passed    0.26 sec
+      Start 16: test_wire
+16/39 Test #16: test_wire ........................   Passed    0.02 sec
+      Start 17: test_pipeline
+17/39 Test #17: test_pipeline ....................   Passed    0.00 sec
+      Start 18: test_records
+18/39 Test #18: test_records .....................   Passed    0.01 sec
+      Start 19: test_kernel
+19/39 Test #19: test_kernel ......................   Passed    0.26 sec
+      Start 20: test_healer
+20/39 Test #20: test_healer ......................   Passed    0.00 sec
+      Start 21: test_kernel_heal
+21/39 Test #21: test_kernel_heal .................   Passed    0.00 sec
+      Start 22: test_sha256
+22/39 Test #22: test_sha256 ......................   Passed    0.01 sec
+      Start 23: test_policy
+23/39 Test #23: test_policy ......................   Passed    0.00 sec
+      Start 24: test_kernel_policy
+24/39 Test #24: test_kernel_policy ...............   Passed    0.00 sec
+      Start 25: test_log_store
+25/39 Test #25: test_log_store ...................   Passed    0.00 sec
+      Start 26: test_ffi
+26/39 Test #26: test_ffi .........................   Passed    0.56 sec
+      Start 27: test_stitcher
+27/39 Test #27: test_stitcher ....................   Passed    0.01 sec
+      Start 28: test_codec
+28/39 Test #28: test_codec .......................   Passed    0.00 sec
+      Start 29: test_crypto
+29/39 Test #29: test_crypto ......................   Passed    0.00 sec
+      Start 30: test_wal_recovery
+30/39 Test #30: test_wal_recovery ................   Passed    0.00 sec
+      Start 31: test_healer_storm
+31/39 Test #31: test_healer_storm ................   Passed    0.02 sec
+      Start 32: test_crash_sentry
+32/39 Test #32: test_crash_sentry ................   Passed    0.00 sec
+      Start 33: test_e2e_loopback
+33/39 Test #33: test_e2e_loopback ................   Passed    0.05 sec
+      Start 34: test_thin_server
+34/39 Test #34: test_thin_server .................   Passed    0.07 sec
+      Start 35: test_replay_stitcher
+35/39 Test #35: test_replay_stitcher .............   Passed    0.00 sec
+      Start 36: demo_echo_smoke
+36/39 Test #36: demo_echo_smoke ..................   Passed    0.52 sec
+      Start 37: audit_hotpath
+37/39 Test #37: audit_hotpath ....................   Passed    0.04 sec
+      Start 38: audit_signal_safe
+38/39 Test #38: audit_signal_safe ................   Passed    0.02 sec
+      Start 39: audit_symbols
+39/39 Test #39: audit_symbols ....................   Passed    0.03 sec
+
+100% tests passed out of 39
+
+Total Test time (real) =   2.23 sec

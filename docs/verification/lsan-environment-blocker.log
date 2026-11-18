@@ -1,0 +1,222 @@
+Test project /workspace/shared/MadObs/build-asan
+      Start  1: madobs_api_c
+ 1/32 Test  #1: madobs_api_c .....................***Failed    0.01 sec
+==807==LeakSanitizer has encountered a fatal error.
+==807==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==807==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  2: madobs_api_cpp
+ 2/32 Test  #2: madobs_api_cpp ...................***Failed    0.01 sec
+==809==LeakSanitizer has encountered a fatal error.
+==809==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==809==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  3: madobs_regressions
+ 3/32 Test  #3: madobs_regressions ...............***Failed    0.02 sec
+==811==LeakSanitizer has encountered a fatal error.
+==811==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==811==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  4: test_clock
+ 4/32 Test  #4: test_clock .......................***Failed    0.01 sec
+==815==LeakSanitizer has encountered a fatal error.
+==815==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==815==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  5: test_event_ring
+ 5/32 Test  #5: test_event_ring ..................***Failed    0.03 sec
+==817==LeakSanitizer has encountered a fatal error.
+==817==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==817==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  6: test_schema
+ 6/32 Test  #6: test_schema ......................***Failed    0.01 sec
+==829==LeakSanitizer has encountered a fatal error.
+==829==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==829==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  7: test_metrics
+ 7/32 Test  #7: test_metrics .....................***Failed    0.01 sec
+==831==LeakSanitizer has encountered a fatal error.
+==831==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==831==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  8: test_wal_ring
+ 8/32 Test  #8: test_wal_ring ....................***Failed    0.01 sec
+==833==LeakSanitizer has encountered a fatal error.
+==833==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==833==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  9: test_tdigest
+ 9/32 Test  #9: test_tdigest .....................***Failed    0.72 sec
+==835==LeakSanitizer has encountered a fatal error.
+==835==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==835==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 10: test_wire
+10/32 Test #10: test_wire ........................***Failed    0.03 sec
+==837==LeakSanitizer has encountered a fatal error.
+==837==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==837==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 11: test_pipeline
+11/32 Test #11: test_pipeline ....................***Failed    0.01 sec
+==839==LeakSanitizer has encountered a fatal error.
+==839==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==839==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 12: test_records
+12/32 Test #12: test_records .....................***Failed    0.03 sec
+==841==LeakSanitizer has encountered a fatal error.
+==841==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==841==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 13: test_kernel
+13/32 Test #13: test_kernel ......................***Failed    0.29 sec
+==843==LeakSanitizer has encountered a fatal error.
+==843==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==843==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 14: test_healer
+14/32 Test #14: test_healer ......................***Failed    0.07 sec
+==846==LeakSanitizer has encountered a fatal error.
+==846==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==846==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 15: test_kernel_heal
+15/32 Test #15: test_kernel_heal .................***Failed    0.04 sec
+==848==LeakSanitizer has encountered a fatal error.
+==848==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==848==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 16: test_sha256
+16/32 Test #16: test_sha256 ......................***Failed    0.03 sec
+==850==LeakSanitizer has encountered a fatal error.
+==850==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==850==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 17: test_policy
+17/32 Test #17: test_policy ......................***Failed    0.01 sec
+==852==LeakSanitizer has encountered a fatal error.
+==852==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==852==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 18: test_kernel_policy
+18/32 Test #18: test_kernel_policy ...............***Failed    0.02 sec
+==854==LeakSanitizer has encountered a fatal error.
+==854==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==854==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 19: test_log_store
+19/32 Test #19: test_log_store ...................***Failed    0.01 sec
+==856==LeakSanitizer has encountered a fatal error.
+==856==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==856==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 20: test_ffi
+20/32 Test #20: test_ffi .........................***Failed    0.57 sec
+==858==LeakSanitizer has encountered a fatal error.
+==858==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==858==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 21: test_stitcher
+21/32 Test #21: test_stitcher ....................***Failed    0.02 sec
+==863==LeakSanitizer has encountered a fatal error.
+==863==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==863==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 22: test_codec
+22/32 Test #22: test_codec .......................***Failed    0.01 sec
+==865==LeakSanitizer has encountered a fatal error.
+==865==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==865==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 23: test_crypto
+23/32 Test #23: test_crypto ......................***Failed    0.01 sec
+==867==LeakSanitizer has encountered a fatal error.
+==867==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==867==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 24: test_wal_recovery
+24/32 Test #24: test_wal_recovery ................***Failed    0.02 sec
+==869==LeakSanitizer has encountered a fatal error.
+==869==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==869==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 25: test_healer_storm
+25/32 Test #25: test_healer_storm ................***Failed    0.09 sec
+==873==LeakSanitizer has encountered a fatal error.
+==873==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==873==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 26: test_crash_sentry
+26/32 Test #26: test_crash_sentry ................***Failed    0.01 sec
+==875==LeakSanitizer has encountered a fatal error.
+==875==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==875==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 27: test_e2e_loopback
+27/32 Test #27: test_e2e_loopback ................***Failed    0.05 sec
+==882==LeakSanitizer has encountered a fatal error.
+==882==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==882==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 28: test_thin_server
+28/32 Test #28: test_thin_server .................***Failed    0.09 sec
+==895==LeakSanitizer has encountered a fatal error.
+==895==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==895==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 29: test_replay_stitcher
+29/32 Test #29: test_replay_stitcher .............***Failed    0.01 sec
+==902==LeakSanitizer has encountered a fatal error.
+==902==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==902==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 30: demo_echo_smoke
+30/32 Test #30: demo_echo_smoke ..................***Failed    0.55 sec
+==904==LeakSanitizer has encountered a fatal error.
+==904==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==904==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 31: audit_hotpath
+31/32 Test #31: audit_hotpath ....................   Passed    0.06 sec
+      Start 32: audit_signal_safe
+32/32 Test #32: audit_signal_safe ................   Passed    0.03 sec
+
+6% tests passed, 30 tests failed out of 32
+
+Total Test time (real) =   2.87 sec
+
+The following tests FAILED:
+	  1 - madobs_api_c (Failed)
+	  2 - madobs_api_cpp (Failed)
+	  3 - madobs_regressions (Failed)
+	  4 - test_clock (Failed)
+	  5 - test_event_ring (Failed)
+	  6 - test_schema (Failed)
+	  7 - test_metrics (Failed)
+	  8 - test_wal_ring (Failed)
+	  9 - test_tdigest (Failed)
+	 10 - test_wire (Failed)
+	 11 - test_pipeline (Failed)
+	 12 - test_records (Failed)
+	 13 - test_kernel (Failed)
+	 14 - test_healer (Failed)
+	 15 - test_kernel_heal (Failed)
+	 16 - test_sha256 (Failed)
+	 17 - test_policy (Failed)
+	 18 - test_kernel_policy (Failed)
+	 19 - test_log_store (Failed)
+	 20 - test_ffi (Failed)
+	 21 - test_stitcher (Failed)
+	 22 - test_codec (Failed)
+	 23 - test_crypto (Failed)
+	 24 - test_wal_recovery (Failed)
+	 25 - test_healer_storm (Failed)
+	 26 - test_crash_sentry (Failed)
+	 27 - test_e2e_loopback (Failed)
+	 28 - test_thin_server (Failed)
+	 29 - test_replay_stitcher (Failed)
+	 30 - demo_echo_smoke (Failed)
+Errors while running CTest

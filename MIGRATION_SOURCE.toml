@@ -1,0 +1,12 @@
+source_repository = "https://github.com/changyue1053/IMObs"
+source_commit = "f88c3531e9b1e824c8b176458acace8fd4ec41b2"
+source_paths = ["imobs/", ".gitignore"]
+target_repository = "https://github.com/changyue1053/MadObs"
+target_head_at_start = "NONE (GitHub commits endpoint 409)"
+source_license = "UNSPECIFIED - publication gate pending owner license choice"
+publication = "NOT AUTHORIZED IN THIS WORK UNIT; LOCAL ONLY"
+excluded = ["root architecture HTML documents (retained remotely, not needed to build)"]
+preserved = ["native core", "C compatibility ABI", "unit/integration/replay/chaos tests", "crash sentry", "tools"]
+changes = ["API-only Noop contract", "independent root CMake", "remove sibling repository auto-discovery", "healer completion mailbox", "cleanup after firewall", "default remote control disabled", "Linux symbol version script and portable audit", "portable crash test fixture", "generic bounded event bridge/G1 codec", "Mad runtime C ABI and installed package", "review fixes: noncopyable Healer/no-exception consumer/real WAL loss accounting/terminal stop"]
+wire_and_disk_formats = "Existing formats unchanged; opt-in generic G1 record added inside existing framing"
+abi_strategy = "legacy imobs_ ABI retained; real madobs_ runtime symbols and generic observer v1 added"
