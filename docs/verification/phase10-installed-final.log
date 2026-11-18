@@ -1,0 +1,28 @@
+-- Install configuration: "Release"
+-- Installing: /workspace/shared/madobs-jni-installed-final/lib/libmadobs_runtime.a
+-- Installing: /workspace/shared/madobs-jni-installed-final/lib/cmake/MadObs/MadObsRuntimeTargets.cmake
+-- Installing: /workspace/shared/madobs-jni-installed-final/lib/cmake/MadObs/MadObsRuntimeTargets-release.cmake
+-- Installing: /workspace/shared/madobs-jni-installed-final/include/imobs/imobs_c.h
+-- Installing: /workspace/shared/madobs-jni-installed-final/include/madobs/runtime.h
+-- Installing: /workspace/shared/madobs-jni-installed-final/include/madobs/private.h
+-- Installing: /workspace/shared/madobs-jni-installed-final/include/madobs/private_runtime.hpp
+-- Installing: /workspace/shared/madobs-jni-installed-final/include/madobs/private_wal.hpp
+-- Installing: /workspace/shared/madobs-jni-installed-final/include/madobs/observer.h
+-- Installing: /workspace/shared/madobs-jni-installed-final/include/madobs/privacy.h
+-- Installing: /workspace/shared/madobs-jni-installed-final/lib/cmake/MadObs/MadObsApiTargets.cmake
+-- Installing: /workspace/shared/madobs-jni-installed-final/lib/cmake/MadObs/MadObsConfig.cmake
+-- Installing: /workspace/shared/madobs-jni-installed-final/lib/cmake/MadObs/MadObsConfigVersion.cmake
+-- Installing: /workspace/shared/madobs-jni-installed-final/lib/libmadobs_jni.so
+-- Installing: /workspace/shared/madobs-jni-installed-final/share/MadObs/java/madobs-jvm.jar
+JVM lifecycle, policy, exception, replay and concurrent close/emit passed
+0000000000008510 T JNI_OnLoad
+0000000000008990 T Java_org_madobs_PrivateRuntime_nClose
+0000000000008610 T Java_org_madobs_PrivateRuntime_nEmit
+0000000000008540 T Java_org_madobs_PrivateRuntime_nFailures
+0000000000008520 T Java_org_madobs_PrivateRuntime_nInCallback
+0000000000008d90 T Java_org_madobs_PrivateRuntime_nOpen
+META-INF/
+META-INF/MANIFEST.MF
+org/madobs/
+org/madobs/PrivateRuntime$Exporter.class
+org/madobs/PrivateRuntime.class

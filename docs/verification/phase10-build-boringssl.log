@@ -1,0 +1,139 @@
+-- imobs: 强加密提供方 = BoringSSL (/workspace/shared/madobs-stage8-artifacts/provider-build-original/libcrypto.a)
+-- Configuring done (3.9s)
+-- Generating done (0.3s)
+-- Build files have been written to: /workspace/shared/MadObs/build-boringssl
+[  3%] Built target test_madobs_privacy
+[  3%] Built target test_madobs_privacy_noexceptions
+[  4%] Built target test_madobs_privacy_strict
+[  5%] Built target test_madobs_api
+[  6%] Built target test_madobs_api_noexceptions
+[  8%] Built target test_madobs_api_cpp
+[ 26%] Built target imobs_shared
+[ 45%] Built target imobs_core
+[ 47%] Built target test_madobs_provider_required
+[ 48%] Built target test_madobs_codec_faults
+[ 50%] Built target test_madobs_open_oom
+[ 51%] Built target test_madobs_regressions
+[ 53%] Built target test_madobs_private_c
+[ 54%] Built target test_madobs_private_runtime
+[ 56%] Built target test_madobs_bridge
+[ 58%] Built target test_clock
+[ 59%] Built target test_schema
+[ 60%] Built target test_event_ring
+[ 62%] Built target test_wire
+[ 63%] Built target test_wal_ring
+[ 65%] Built target test_tdigest
+[ 67%] Built target test_metrics
+[ 68%] Built target test_pipeline
+[ 69%] Built target test_healer
+[ 70%] Built target test_records
+[ 71%] Built target test_kernel
+[ 73%] Built target test_kernel_heal
+[ 75%] Built target test_policy
+[ 77%] Built target test_sha256
+[ 79%] Built target test_ffi
+[ 81%] Built target test_log_store
+[ 82%] Built target test_kernel_policy
+[ 83%] Built target test_stitcher
+[ 84%] Built target test_codec
+[ 85%] Built target test_crypto
+[ 87%] Built target test_healer_storm
+[ 89%] Built target test_wal_recovery
+[ 91%] Built target test_crash_sentry
+[ 92%] Built target test_thin_server
+[ 94%] Built target test_replay_stitcher
+[ 96%] Built target test_e2e_loopback
+[ 98%] Built target imobs_lited
+[ 99%] Built target imobs_echo_demo
+[100%] Built target bench_event_ring
+Test project /workspace/shared/MadObs/build-boringssl
+      Start  1: madobs_privacy_strict
+ 1/43 Test  #1: madobs_privacy_strict ............   Passed    0.00 sec
+      Start  2: madobs_privacy_noexceptions
+ 2/43 Test  #2: madobs_privacy_noexceptions ......   Passed    0.00 sec
+      Start  3: madobs_privacy
+ 3/43 Test  #3: madobs_privacy ...................   Passed    0.00 sec
+      Start  4: madobs_api_c
+ 4/43 Test  #4: madobs_api_c .....................   Passed    0.00 sec
+      Start  5: madobs_api_cpp
+ 5/43 Test  #5: madobs_api_cpp ...................   Passed    0.00 sec
+      Start  6: madobs_api_noexceptions
+ 6/43 Test  #6: madobs_api_noexceptions ..........   Passed    0.00 sec
+      Start  7: madobs_provider_required
+ 7/43 Test  #7: madobs_provider_required .........   Passed    0.01 sec
+      Start  8: madobs_regressions
+ 8/43 Test  #8: madobs_regressions ...............   Passed    0.03 sec
+      Start  9: madobs_open_oom
+ 9/43 Test  #9: madobs_open_oom ..................   Passed    0.02 sec
+      Start 10: madobs_codec_faults
+10/43 Test #10: madobs_codec_faults ..............   Passed    0.02 sec
+      Start 11: madobs_private_c
+11/43 Test #11: madobs_private_c .................   Passed    0.02 sec
+      Start 12: madobs_private_runtime
+12/43 Test #12: madobs_private_runtime ...........   Passed    0.38 sec
+      Start 13: madobs_bridge
+13/43 Test #13: madobs_bridge ....................   Passed    0.05 sec
+      Start 14: test_clock
+14/43 Test #14: test_clock .......................   Passed    0.01 sec
+      Start 15: test_event_ring
+15/43 Test #15: test_event_ring ..................   Passed    0.01 sec
+      Start 16: test_schema
+16/43 Test #16: test_schema ......................   Passed    0.01 sec
+      Start 17: test_metrics
+17/43 Test #17: test_metrics .....................   Passed    0.01 sec
+      Start 18: test_wal_ring
+18/43 Test #18: test_wal_ring ....................   Passed    0.00 sec
+      Start 19: test_tdigest
+19/43 Test #19: test_tdigest .....................   Passed    0.28 sec
+      Start 20: test_wire
+20/43 Test #20: test_wire ........................   Passed    0.05 sec
+      Start 21: test_pipeline
+21/43 Test #21: test_pipeline ....................   Passed    0.00 sec
+      Start 22: test_records
+22/43 Test #22: test_records .....................   Passed    0.01 sec
+      Start 23: test_kernel
+23/43 Test #23: test_kernel ......................   Passed    0.26 sec
+      Start 24: test_healer
+24/43 Test #24: test_healer ......................   Passed    0.00 sec
+      Start 25: test_kernel_heal
+25/43 Test #25: test_kernel_heal .................   Passed    0.01 sec
+      Start 26: test_sha256
+26/43 Test #26: test_sha256 ......................   Passed    0.01 sec
+      Start 27: test_policy
+27/43 Test #27: test_policy ......................   Passed    0.01 sec
+      Start 28: test_kernel_policy
+28/43 Test #28: test_kernel_policy ...............   Passed    0.02 sec
+      Start 29: test_log_store
+29/43 Test #29: test_log_store ...................   Passed    0.03 sec
+      Start 30: test_ffi
+30/43 Test #30: test_ffi .........................   Passed    0.60 sec
+      Start 31: test_stitcher
+31/43 Test #31: test_stitcher ....................   Passed    0.01 sec
+      Start 32: test_codec
+32/43 Test #32: test_codec .......................   Passed    0.00 sec
+      Start 33: test_crypto
+33/43 Test #33: test_crypto ......................   Passed    0.01 sec
+      Start 34: test_wal_recovery
+34/43 Test #34: test_wal_recovery ................   Passed    0.00 sec
+      Start 35: test_healer_storm
+35/43 Test #35: test_healer_storm ................   Passed    0.03 sec
+      Start 36: test_crash_sentry
+36/43 Test #36: test_crash_sentry ................   Passed    0.01 sec
+      Start 37: test_e2e_loopback
+37/43 Test #37: test_e2e_loopback ................   Passed    0.07 sec
+      Start 38: test_thin_server
+38/43 Test #38: test_thin_server .................   Passed    0.07 sec
+      Start 39: test_replay_stitcher
+39/43 Test #39: test_replay_stitcher .............   Passed    0.01 sec
+      Start 40: demo_echo_smoke
+40/43 Test #40: demo_echo_smoke ..................   Passed    0.54 sec
+      Start 41: audit_hotpath
+41/43 Test #41: audit_hotpath ....................   Passed    0.07 sec
+      Start 42: audit_signal_safe
+42/43 Test #42: audit_signal_safe ................   Passed    0.04 sec
+      Start 43: audit_symbols
+43/43 Test #43: audit_symbols ....................   Passed    0.05 sec
+
+100% tests passed out of 43
+
+Total Test time (real) =   2.81 sec

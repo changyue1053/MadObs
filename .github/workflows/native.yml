@@ -62,3 +62,24 @@ jobs:
           cmake -S samples/encrypted_logs_c -B "$RUNNER_TEMP/consumer" -DCMAKE_BUILD_TYPE=Release -DMadObs_DIR="$RUNNER_TEMP/relocated/lib/cmake/MadObs"
           cmake --build "$RUNNER_TEMP/consumer" --parallel 4
           "$RUNNER_TEMP/consumer/consumer"
+  host-jvm:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Fetch checksum-pinned host JDK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/jdk"
+          URL=$(python3 -c 'import json;print(json.load(open("deps/temurin-host-jdk.lock.json"))["archive_url"])')
+          SHA=$(python3 -c 'import json;print(json.load(open("deps/temurin-host-jdk.lock.json"))["archive_sha256"])')
+          curl --fail --location --retry 2 --max-time 180 "$URL" -o "$RUNNER_TEMP/jdk/archive.tar.gz"
+          echo "$SHA  $RUNNER_TEMP/jdk/archive.tar.gz" | sha256sum --check --strict
+          tar -xzf "$RUNNER_TEMP/jdk/archive.tar.gz" -C "$RUNNER_TEMP/jdk"
+      - name: Host-JVM contracts and installed consumer
+        shell: bash
+        run: |
+          export JAVA_HOME="$RUNNER_TEMP/jdk/jdk-21.0.13+9"
+          scripts/verify-jvm.sh

@@ -1,0 +1,10 @@
+{
+  global:
+    JNI_OnLoad;
+    Java_org_madobs_PrivateRuntime_nOpen;
+    Java_org_madobs_PrivateRuntime_nEmit;
+    Java_org_madobs_PrivateRuntime_nFailures;
+    Java_org_madobs_PrivateRuntime_nClose;
+    Java_org_madobs_PrivateRuntime_nInCallback;
+  local: *;
+};

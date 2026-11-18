@@ -1,0 +1,335 @@
+JVM verification artifacts: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- imobs: 无 BoringSSL 产物，编入空加密提供方（HMAC/明文路径可用）
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3.1")
+-- Found JNI: /workspace/shared/madobs-host-jdk/jdk-21.0.13+9/include  found components: AWT JVM
+-- Found Java: /workspace/shared/madobs-host-jdk/jdk-21.0.13+9/bin/java (found version "21.0.13") found components: Development Runtime
+-- Configuring done (0.8s)
+-- Generating done (0.1s)
+-- Build files have been written to: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/build
+[  1%] Building C object CMakeFiles/test_madobs_privacy.dir/tests/contract/test_privacy.c.o
+[  1%] Building CXX object CMakeFiles/test_madobs_privacy_noexceptions.dir/tests/contract/test_privacy_cpp.cc.o
+[  2%] Building CXX object CMakeFiles/test_madobs_privacy_strict.dir/tests/contract/test_privacy_cpp.cc.o
+[  3%] Building C object CMakeFiles/test_madobs_api.dir/tests/contract/test_api.c.o
+[  4%] Linking CXX executable test_madobs_privacy_noexceptions
+[  4%] Linking CXX executable test_madobs_privacy_strict
+[  5%] Linking C executable test_madobs_api
+[  5%] Built target test_madobs_privacy_strict
+[  5%] Building CXX object CMakeFiles/test_madobs_api_cpp.dir/tests/contract/test_api_cpp.cc.o
+[  5%] Built target test_madobs_privacy_noexceptions
+[  5%] Built target test_madobs_api
+[  6%] Building CXX object CMakeFiles/test_madobs_api_noexceptions.dir/tests/contract/test_api_noexceptions.cc.o
+[  7%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/schema.cc.o
+[  7%] Linking CXX executable test_madobs_api_noexceptions
+[  8%] Linking C executable test_madobs_privacy
+[  8%] Built target test_madobs_api_noexceptions
+[  9%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/schema.cc.o
+[  9%] Built target test_madobs_privacy
+[ 10%] Generating classes/org/madobs/PrivateRuntime.class
+[ 11%] Linking CXX executable test_madobs_api_cpp
+[ 11%] Built target test_madobs_api_cpp
+[ 12%] Building CXX object bindings/jvm/CMakeFiles/test_madobs_jni_failure.dir/tests/jni_failure.cc.o
+[ 13%] Linking CXX executable test_madobs_jni_failure
+[ 13%] Built target test_madobs_jni_failure
+[ 14%] Generating classes/org/madobs/PrivateRuntime.class
+[ 14%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/metrics.cc.o
+[ 14%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/metrics.cc.o
+[ 14%] Built target madobs_java
+[ 15%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/tdigest.cc.o
+[ 15%] Generating madobs-jvm.jar
+[ 15%] Built target madobs_java_jar
+[ 16%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/records.cc.o
+[ 17%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/pipeline/wal_ring.cc.o
+[ 18%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/tdigest.cc.o
+[ 18%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/pipeline/pipeline.cc.o
+[ 19%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/records.cc.o
+[ 20%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/health/healer.cc.o
+[ 21%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/policy/policy.cc.o
+[ 21%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/pipeline/wal_ring.cc.o
+[ 21%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/kernel/obs_kernel.cc.o
+[ 22%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/pipeline/pipeline.cc.o
+[ 23%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/log_store.cc.o
+[ 24%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/wire.cc.o
+[ 25%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/codec.cc.o
+[ 25%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/batch_view.cc.o
+[ 26%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/sha256.cc.o
+[ 27%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/tcp_channel.cc.o
+[ 27%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/platform/crash_sentry.cc.o
+[ 28%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/health/healer.cc.o
+[ 29%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/policy/policy.cc.o
+[ 29%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/kernel/obs_kernel.cc.o
+[ 30%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/server/stitcher.cc.o
+[ 31%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/server/collector.cc.o
+[ 32%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/log_store.cc.o
+[ 33%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/wire.cc.o
+[ 34%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/server/thin_server.cc.o
+[ 34%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/codec.cc.o
+[ 34%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/api/ffi.cc.o
+[ 35%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/batch_view.cc.o
+[ 36%] Building CXX object imobs/CMakeFiles/imobs_core.dir/__/src/madobs_compat.cc.o
+[ 37%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/sha256.cc.o
+[ 38%] Building CXX object imobs/CMakeFiles/imobs_core.dir/__/src/private_binding.cc.o
+[ 39%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/tcp_channel.cc.o
+[ 39%] Building CXX object imobs/CMakeFiles/imobs_core.dir/__/src/generic_events.cc.o
+[ 40%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/crypto_null.cc.o
+[ 40%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/platform/crash_sentry.cc.o
+[ 41%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/server/stitcher.cc.o
+[ 42%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/server/collector.cc.o
+[ 43%] Linking CXX static library libmadobs_runtime.a
+[ 43%] Built target imobs_core
+[ 44%] Building CXX object CMakeFiles/test_madobs_regressions.dir/tests/contract/test_regressions.cc.o
+[ 44%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/server/thin_server.cc.o
+[ 45%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/api/ffi.cc.o
+[ 46%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/__/src/madobs_compat.cc.o
+[ 46%] Building CXX object CMakeFiles/test_madobs_open_oom.dir/tests/contract/test_open_oom.cc.o
+[ 47%] Linking CXX executable test_madobs_open_oom
+[ 47%] Built target test_madobs_open_oom
+[ 48%] Building CXX object CMakeFiles/test_madobs_codec_faults.dir/tests/contract/test_codec_faults.cc.o
+[ 49%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/__/src/private_binding.cc.o
+[ 50%] Linking CXX executable test_madobs_regressions
+[ 50%] Built target test_madobs_regressions
+[ 51%] Building C object CMakeFiles/test_madobs_private_c.dir/tests/contract/test_private_c.c.o
+[ 52%] Linking CXX executable test_madobs_private_c
+[ 52%] Linking CXX executable test_madobs_codec_faults
+[ 52%] Built target test_madobs_private_c
+[ 52%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/__/src/generic_events.cc.o
+[ 52%] Built target test_madobs_codec_faults
+[ 53%] Building CXX object CMakeFiles/test_madobs_private_runtime.dir/tests/contract/test_private_runtime.cc.o
+[ 54%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/crypto_null.cc.o
+[ 55%] Building CXX object CMakeFiles/test_madobs_bridge.dir/tests/contract/test_runtime_bridge.cc.o
+[ 56%] Building CXX object imobs/CMakeFiles/test_clock.dir/test/unit/test_clock.cc.o
+[ 57%] Linking CXX shared library libmadobs_runtime.so
+[ 57%] Built target imobs_shared
+[ 57%] Building CXX object imobs/CMakeFiles/test_event_ring.dir/test/unit/test_event_ring.cc.o
+[ 58%] Linking CXX executable test_clock
+[ 58%] Built target test_clock
+[ 59%] Linking CXX executable test_event_ring
+[ 60%] Building CXX object imobs/CMakeFiles/test_schema.dir/test/unit/test_schema.cc.o
+[ 60%] Built target test_event_ring
+[ 61%] Building CXX object imobs/CMakeFiles/test_metrics.dir/test/unit/test_metrics.cc.o
+[ 61%] Linking CXX executable test_metrics
+[ 61%] Linking CXX executable test_schema
+[ 61%] Built target test_metrics
+[ 61%] Building CXX object imobs/CMakeFiles/test_wal_ring.dir/test/unit/test_wal_ring.cc.o
+[ 61%] Built target test_schema
+[ 62%] Building CXX object imobs/CMakeFiles/test_tdigest.dir/test/unit/test_tdigest.cc.o
+[ 62%] Linking CXX executable test_madobs_private_runtime
+[ 62%] Built target test_madobs_private_runtime
+[ 63%] Building CXX object imobs/CMakeFiles/test_wire.dir/test/unit/test_wire.cc.o
+[ 64%] Linking CXX executable test_madobs_bridge
+[ 64%] Built target test_madobs_bridge
+[ 65%] Building CXX object imobs/CMakeFiles/test_pipeline.dir/test/unit/test_pipeline.cc.o
+[ 66%] Linking CXX executable test_tdigest
+[ 67%] Linking CXX executable test_wal_ring
+[ 67%] Built target test_tdigest
+[ 68%] Building CXX object imobs/CMakeFiles/test_records.dir/test/unit/test_records.cc.o
+[ 68%] Built target test_wal_ring
+[ 69%] Building CXX object imobs/CMakeFiles/test_kernel.dir/test/unit/test_kernel.cc.o
+[ 70%] Linking CXX executable test_wire
+[ 70%] Built target test_wire
+[ 71%] Building CXX object imobs/CMakeFiles/test_healer.dir/test/unit/test_healer.cc.o
+[ 72%] Linking CXX executable test_records
+[ 72%] Built target test_records
+[ 72%] Building CXX object imobs/CMakeFiles/test_kernel_heal.dir/test/unit/test_kernel_heal.cc.o
+[ 73%] Linking CXX executable test_pipeline
+[ 73%] Built target test_pipeline
+[ 74%] Building CXX object imobs/CMakeFiles/test_sha256.dir/test/unit/test_sha256.cc.o
+[ 75%] Linking CXX executable test_sha256
+[ 75%] Built target test_sha256
+[ 75%] Building CXX object imobs/CMakeFiles/test_policy.dir/test/unit/test_policy.cc.o
+[ 76%] Linking CXX executable test_kernel
+[ 76%] Built target test_kernel
+[ 77%] Building CXX object imobs/CMakeFiles/test_kernel_policy.dir/test/unit/test_kernel_policy.cc.o
+[ 78%] Linking CXX executable test_healer
+[ 78%] Built target test_healer
+[ 78%] Building CXX object imobs/CMakeFiles/test_log_store.dir/test/unit/test_log_store.cc.o
+[ 79%] Linking CXX executable test_kernel_heal
+[ 79%] Built target test_kernel_heal
+[ 80%] Building CXX object imobs/CMakeFiles/test_ffi.dir/test/unit/test_ffi.cc.o
+[ 81%] Linking CXX executable test_policy
+[ 81%] Built target test_policy
+[ 82%] Building CXX object imobs/CMakeFiles/test_stitcher.dir/test/unit/test_stitcher.cc.o
+[ 83%] Linking CXX executable test_log_store
+[ 83%] Built target test_log_store
+[ 84%] Building CXX object imobs/CMakeFiles/test_codec.dir/test/unit/test_codec.cc.o
+[ 84%] Linking CXX executable test_codec
+[ 84%] Built target test_codec
+[ 84%] Building CXX object imobs/CMakeFiles/test_crypto.dir/test/unit/test_crypto.cc.o
+[ 84%] Linking CXX executable test_ffi
+[ 84%] Built target test_ffi
+[ 85%] Building CXX object imobs/CMakeFiles/test_wal_recovery.dir/test/crash/test_wal_recovery.cc.o
+[ 86%] Linking CXX executable test_crypto
+[ 86%] Built target test_crypto
+[ 87%] Building CXX object imobs/CMakeFiles/test_healer_storm.dir/test/chaos/test_healer_storm.cc.o
+[ 88%] Linking CXX executable test_kernel_policy
+[ 88%] Built target test_kernel_policy
+[ 89%] Building CXX object imobs/CMakeFiles/test_crash_sentry.dir/test/crash/test_crash_sentry.cc.o
+[ 89%] Linking CXX executable test_stitcher
+[ 89%] Built target test_stitcher
+[ 90%] Building CXX object imobs/CMakeFiles/test_e2e_loopback.dir/test/e2e/test_e2e_loopback.cc.o
+[ 91%] Linking CXX executable test_wal_recovery
+[ 91%] Built target test_wal_recovery
+[ 91%] Building CXX object imobs/CMakeFiles/test_thin_server.dir/test/e2e/test_thin_server.cc.o
+[ 92%] Linking CXX executable test_crash_sentry
+[ 92%] Built target test_crash_sentry
+[ 92%] Building CXX object imobs/CMakeFiles/test_replay_stitcher.dir/test/replay/test_replay_stitcher.cc.o
+[ 92%] Linking CXX executable test_healer_storm
+[ 92%] Built target test_healer_storm
+[ 93%] Building CXX object imobs/CMakeFiles/imobs_lited.dir/tools/imobs_lited.cc.o
+[ 94%] Linking CXX executable test_replay_stitcher
+[ 94%] Built target test_replay_stitcher
+[ 95%] Building CXX object imobs/CMakeFiles/imobs_echo_demo.dir/tools/imobs_echo_demo.cc.o
+[ 96%] Linking CXX executable test_e2e_loopback
+[ 96%] Built target test_e2e_loopback
+[ 96%] Building CXX object imobs/CMakeFiles/bench_event_ring.dir/test/perf/bench_event_ring.cc.o
+[ 97%] Linking CXX executable imobs_lited
+[ 97%] Built target imobs_lited
+[ 98%] Building CXX object bindings/jvm/CMakeFiles/madobs_jni.dir/private_jni.cc.o
+[ 99%] Linking CXX executable test_thin_server
+[ 99%] Built target test_thin_server
+[ 99%] Linking CXX shared library libmadobs_jni.so
+[ 99%] Built target madobs_jni
+[100%] Linking CXX executable bench_event_ring
+[100%] Built target bench_event_ring
+[100%] Linking CXX executable imobs_echo_demo
+[100%] Built target imobs_echo_demo
+Test project /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/build
+      Start  1: madobs_privacy_strict
+ 1/44 Test  #1: madobs_privacy_strict ............   Passed    0.00 sec
+      Start  2: madobs_privacy_noexceptions
+ 2/44 Test  #2: madobs_privacy_noexceptions ......   Passed    0.00 sec
+      Start  3: madobs_privacy
+ 3/44 Test  #3: madobs_privacy ...................   Passed    0.00 sec
+      Start  4: madobs_api_c
+ 4/44 Test  #4: madobs_api_c .....................   Passed    0.00 sec
+      Start  5: madobs_api_cpp
+ 5/44 Test  #5: madobs_api_cpp ...................   Passed    0.00 sec
+      Start  6: madobs_api_noexceptions
+ 6/44 Test  #6: madobs_api_noexceptions ..........   Passed    0.00 sec
+      Start  7: madobs_regressions
+ 7/44 Test  #7: madobs_regressions ...............   Passed    0.01 sec
+      Start  8: madobs_open_oom
+ 8/44 Test  #8: madobs_open_oom ..................   Passed    0.01 sec
+      Start  9: madobs_codec_faults
+ 9/44 Test  #9: madobs_codec_faults ..............   Passed    0.01 sec
+      Start 10: madobs_private_c
+10/44 Test #10: madobs_private_c .................   Passed    0.02 sec
+      Start 11: madobs_private_runtime
+11/44 Test #11: madobs_private_runtime ...........   Passed    0.41 sec
+      Start 12: madobs_bridge
+12/44 Test #12: madobs_bridge ....................   Passed    0.14 sec
+      Start 13: test_clock
+13/44 Test #13: test_clock .......................   Passed    0.01 sec
+      Start 14: test_event_ring
+14/44 Test #14: test_event_ring ..................   Passed    0.03 sec
+      Start 15: test_schema
+15/44 Test #15: test_schema ......................   Passed    0.00 sec
+      Start 16: test_metrics
+16/44 Test #16: test_metrics .....................   Passed    0.00 sec
+      Start 17: test_wal_ring
+17/44 Test #17: test_wal_ring ....................   Passed    0.00 sec
+      Start 18: test_tdigest
+18/44 Test #18: test_tdigest .....................   Passed    0.29 sec
+      Start 19: test_wire
+19/44 Test #19: test_wire ........................   Passed    0.03 sec
+      Start 20: test_pipeline
+20/44 Test #20: test_pipeline ....................   Passed    0.00 sec
+      Start 21: test_records
+21/44 Test #21: test_records .....................   Passed    0.01 sec
+      Start 22: test_kernel
+22/44 Test #22: test_kernel ......................   Passed    0.26 sec
+      Start 23: test_healer
+23/44 Test #23: test_healer ......................   Passed    0.00 sec
+      Start 24: test_kernel_heal
+24/44 Test #24: test_kernel_heal .................   Passed    0.00 sec
+      Start 25: test_sha256
+25/44 Test #25: test_sha256 ......................   Passed    0.01 sec
+      Start 26: test_policy
+26/44 Test #26: test_policy ......................   Passed    0.00 sec
+      Start 27: test_kernel_policy
+27/44 Test #27: test_kernel_policy ...............   Passed    0.00 sec
+      Start 28: test_log_store
+28/44 Test #28: test_log_store ...................   Passed    0.00 sec
+      Start 29: test_ffi
+29/44 Test #29: test_ffi .........................   Passed    0.56 sec
+      Start 30: test_stitcher
+30/44 Test #30: test_stitcher ....................   Passed    0.01 sec
+      Start 31: test_codec
+31/44 Test #31: test_codec .......................   Passed    0.00 sec
+      Start 32: test_crypto
+32/44 Test #32: test_crypto ......................   Passed    0.00 sec
+      Start 33: test_wal_recovery
+33/44 Test #33: test_wal_recovery ................   Passed    0.00 sec
+      Start 34: test_healer_storm
+34/44 Test #34: test_healer_storm ................   Passed    0.01 sec
+      Start 35: test_crash_sentry
+35/44 Test #35: test_crash_sentry ................   Passed    0.00 sec
+      Start 36: test_e2e_loopback
+36/44 Test #36: test_e2e_loopback ................   Passed    0.04 sec
+      Start 37: test_thin_server
+37/44 Test #37: test_thin_server .................   Passed    0.07 sec
+      Start 38: test_replay_stitcher
+38/44 Test #38: test_replay_stitcher .............   Passed    0.00 sec
+      Start 39: demo_echo_smoke
+39/44 Test #39: demo_echo_smoke ..................   Passed    0.53 sec
+      Start 40: audit_hotpath
+40/44 Test #40: audit_hotpath ....................   Passed    0.05 sec
+      Start 41: audit_signal_safe
+41/44 Test #41: audit_signal_safe ................   Passed    0.03 sec
+      Start 42: audit_symbols
+42/44 Test #42: audit_symbols ....................   Passed    0.03 sec
+      Start 43: madobs_jni_failure
+43/44 Test #43: madobs_jni_failure ...............   Passed    0.00 sec
+      Start 44: madobs_jvm
+44/44 Test #44: madobs_jvm .......................   Passed    0.53 sec
+
+100% tests passed out of 44
+
+Total Test time (real) =   3.16 sec
+-- Install configuration: "Release"
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/lib/libmadobs_runtime.a
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/lib/cmake/MadObs/MadObsRuntimeTargets.cmake
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/lib/cmake/MadObs/MadObsRuntimeTargets-release.cmake
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/include/imobs/imobs_c.h
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/include/madobs/runtime.h
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/include/madobs/private.h
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/include/madobs/private_runtime.hpp
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/include/madobs/private_wal.hpp
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/include/madobs/observer.h
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/include/madobs/privacy.h
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/lib/cmake/MadObs/MadObsApiTargets.cmake
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/lib/cmake/MadObs/MadObsConfig.cmake
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/lib/cmake/MadObs/MadObsConfigVersion.cmake
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/lib/libmadobs_jni.so
+-- Installing: /workspace/shared/madobs-stage8-artifacts/tmp/madobs-jvm-check.HL99N3/installed/share/MadObs/java/madobs-jvm.jar
+JVM lifecycle, policy, exception, replay and concurrent close/emit passed
+Exact JNI export surface passed
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at CMakeLists.txt:129 (message):
+  MADOBS_BUILD_JNI requires MADOBS_BUILD_RUNTIME
+
+
+-- Configuring incomplete, errors occurred!
+Host-JVM build/tests/installed consumer/exports and negative configuration passed

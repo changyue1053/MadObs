@@ -74,24 +74,36 @@ is claimed. See `platforms/README.md`. Latest local verification:
 and synchronized Emit/Close. It permits WAL recovery only with an exact versioned policy identity and validates
 every exported batch against that policy; raw/unknown/changed-policy storage fails closed.
 Raw ABI is unchanged. See `docs/PRIVATE_RUNTIME.md` and latest `docs/PHASE5_RESULT.md`.
-This native substrate is not a validated JNI/Swift/ArkTS managed package.
+This native substrate alone is not a managed package; the later host-JVM binding
+is described below. Swift/ArkTS packages remain unvalidated.
 
 ## Owning foreign-interface ABI and blocked-WAL operations
 
 `madobs/private.h` exposes the tested owning C binding for future platform adapters,
-with generation handles and numeric privacy-gate diagnostics. It is not a compiled
-JNI/Swift/ArkTS package. See `samples/private_c`, `docs/BLOCKED_WAL_RUNBOOK.md` and
+with generation handles and numeric privacy-gate diagnostics. The C ABI alone is
+not a managed package; see the later optional host-JVM binding below. See `samples/private_c`, `docs/BLOCKED_WAL_RUNBOOK.md` and
 latest `docs/PHASE6_RESULT.md`. Recovery of future collection never disables the
 privacy gate or silently deletes/acknowledges blocked historical data.
 
 Latest diagnostic/package increment: `docs/PHASE7_RESULT.md`. Use additive
 `madobs_private_open_ex` for coarse safe failure reasons. `scripts/verify-installed.sh`
 checks fresh default null-provider native/API packages and relocation offline. The
-BoringSSL-enabled installation still embeds an external archive path and is NOT
-certified relocatable. Requested-version matching is exact; unversioned discovery
+unverified BoringSSL installation is rejected; verified-source provider packaging
+and isolated relocation validation were added in Phase8 (see below). Requested-version matching is exact; unversioned discovery
 remains compatible and does not imply a stable ABI guarantee.
 
 Optional real-provider packaging is now implemented and locally verified; see
 `docs/BORINGSSL_PACKAGE.md` and `docs/PHASE8_RESULT.md`. This supersedes the phase-7
 absolute-path packaging blocker for the explicitly verified bundled configuration.
 Static cross-SDK provider composition is still unverified and not symbol-isolated.
+
+
+## Experimental host-JVM binding
+
+`-DMADOBS_BUILD_JNI=ON` adds an explicitly owned Java `PrivateRuntime`, JNI shared
+library and installable JAR. Host JVM policy/lifecycle/concurrency/exception and
+installed-consumer tests run with `-Xcheck:jni`. It is not Android NDK/AAR or device
+qualification. Explicit close remains mandatory and exporters must not block.
+See `bindings/jvm/README.md`, `docs/PHASE10_RESULT.md` and `scripts/verify-jvm.sh`.
+The opt-in fixed-host MadLink composition smoke is documented separately in
+`docs/PHASE9_RESULT.md`; neither path makes another SDK a default dependency.

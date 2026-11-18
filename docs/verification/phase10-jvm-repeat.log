@@ -1,0 +1,45 @@
+Test project /workspace/shared/madobs-jni-build
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.65 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.27 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.25 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.23 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.26 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.25 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.25 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.52 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.27 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.23 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.25 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.23 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.22 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.26 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.23 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.90 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.27 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.27 sec
+    Start 44: madobs_jvm
+    Test #44: madobs_jvm .......................   Passed    0.25 sec
+    Start 44: madobs_jvm
+1/1 Test #44: madobs_jvm .......................   Passed    0.26 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   6.35 sec
