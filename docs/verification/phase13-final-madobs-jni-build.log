@@ -1,0 +1,148 @@
+[  3%] Built target test_madobs_privacy_strict
+[  3%] Built target test_madobs_privacy_noexceptions
+[  4%] Built target test_madobs_privacy
+[  6%] Built target test_madobs_api
+[  7%] Built target test_madobs_api_cpp
+[ 24%] Built target imobs_core
+[ 26%] Built target test_madobs_api_noexceptions
+[ 44%] Built target imobs_shared
+[ 44%] Built target madobs_java
+[ 45%] Built target test_madobs_jni_failure
+[ 46%] Built target test_madobs_regressions
+[ 47%] Built target test_madobs_open_oom
+[ 49%] Built target test_madobs_codec_faults
+[ 51%] Built target test_madobs_private_c
+[ 52%] Built target test_madobs_private_runtime
+[ 53%] Built target test_madobs_boundary_properties
+[ 54%] Built target test_madobs_bridge
+[ 56%] Built target test_clock
+[ 58%] Built target test_event_ring
+[ 60%] Built target test_schema
+[ 62%] Built target test_metrics
+[ 63%] Built target test_tdigest
+[ 64%] Built target test_wal_ring
+[ 65%] Built target test_pipeline
+[ 67%] Built target test_wire
+[ 68%] Built target test_records
+[ 69%] Built target test_kernel
+[ 71%] Built target test_kernel_heal
+[ 72%] Built target test_healer
+[ 73%] Built target test_sha256
+[ 75%] Built target test_policy
+[ 76%] Built target test_log_store
+[ 77%] Built target test_kernel_policy
+[ 78%] Built target test_ffi
+[ 80%] Built target test_stitcher
+[ 82%] Built target test_crypto
+[ 83%] Built target test_codec
+[ 85%] Built target test_wal_recovery
+[ 87%] Built target test_healer_storm
+[ 88%] Built target test_e2e_loopback
+[ 89%] Built target test_crash_sentry
+[ 90%] Built target test_thin_server
+[ 91%] Built target test_replay_stitcher
+[ 92%] Built target imobs_lited
+[ 94%] Built target imobs_echo_demo
+[ 95%] Built target madobs_jni
+[ 96%] Built target bench_event_ring
+[ 97%] Built target madobs_java_tests
+[ 99%] Built target test_madobs_jni_send_failure
+[100%] Built target madobs_java_jar
+Fresh test-only /tmp backing: /workspace/shared/madobs-stage13-test-tmp/madobs-jni-build.ip0ucQ
+Test project /workspace/shared/madobs-jni-build
+      Start  1: madobs_privacy_strict
+ 1/46 Test  #1: madobs_privacy_strict ............   Passed    0.00 sec
+      Start  2: madobs_privacy_noexceptions
+ 2/46 Test  #2: madobs_privacy_noexceptions ......   Passed    0.00 sec
+      Start  3: madobs_privacy
+ 3/46 Test  #3: madobs_privacy ...................   Passed    0.00 sec
+      Start  4: madobs_api_c
+ 4/46 Test  #4: madobs_api_c .....................   Passed    0.00 sec
+      Start  5: madobs_api_cpp
+ 5/46 Test  #5: madobs_api_cpp ...................   Passed    0.00 sec
+      Start  6: madobs_api_noexceptions
+ 6/46 Test  #6: madobs_api_noexceptions ..........   Passed    0.00 sec
+      Start  7: madobs_regressions
+ 7/46 Test  #7: madobs_regressions ...............   Passed    0.02 sec
+      Start  8: madobs_open_oom
+ 8/46 Test  #8: madobs_open_oom ..................   Passed    0.04 sec
+      Start  9: madobs_codec_faults
+ 9/46 Test  #9: madobs_codec_faults ..............   Passed    0.02 sec
+      Start 10: madobs_private_c
+10/46 Test #10: madobs_private_c .................   Passed    0.02 sec
+      Start 11: madobs_private_runtime
+11/46 Test #11: madobs_private_runtime ...........   Passed    0.76 sec
+      Start 12: madobs_boundary_properties
+12/46 Test #12: madobs_boundary_properties .......   Passed    0.05 sec
+      Start 13: madobs_bridge
+13/46 Test #13: madobs_bridge ....................   Passed    0.05 sec
+      Start 14: test_clock
+14/46 Test #14: test_clock .......................   Passed    0.00 sec
+      Start 15: test_event_ring
+15/46 Test #15: test_event_ring ..................   Passed    0.03 sec
+      Start 16: test_schema
+16/46 Test #16: test_schema ......................   Passed    0.00 sec
+      Start 17: test_metrics
+17/46 Test #17: test_metrics .....................   Passed    0.00 sec
+      Start 18: test_wal_ring
+18/46 Test #18: test_wal_ring ....................   Passed    0.00 sec
+      Start 19: test_tdigest
+19/46 Test #19: test_tdigest .....................   Passed    0.24 sec
+      Start 20: test_wire
+20/46 Test #20: test_wire ........................   Passed    0.02 sec
+      Start 21: test_pipeline
+21/46 Test #21: test_pipeline ....................   Passed    0.01 sec
+      Start 22: test_records
+22/46 Test #22: test_records .....................   Passed    0.01 sec
+      Start 23: test_kernel
+23/46 Test #23: test_kernel ......................   Passed    0.26 sec
+      Start 24: test_healer
+24/46 Test #24: test_healer ......................   Passed    0.00 sec
+      Start 25: test_kernel_heal
+25/46 Test #25: test_kernel_heal .................   Passed    0.01 sec
+      Start 26: test_sha256
+26/46 Test #26: test_sha256 ......................   Passed    0.01 sec
+      Start 27: test_policy
+27/46 Test #27: test_policy ......................   Passed    0.00 sec
+      Start 28: test_kernel_policy
+28/46 Test #28: test_kernel_policy ...............   Passed    0.01 sec
+      Start 29: test_log_store
+29/46 Test #29: test_log_store ...................   Passed    0.00 sec
+      Start 30: test_ffi
+30/46 Test #30: test_ffi .........................   Passed    0.57 sec
+      Start 31: test_stitcher
+31/46 Test #31: test_stitcher ....................   Passed    0.01 sec
+      Start 32: test_codec
+32/46 Test #32: test_codec .......................   Passed    0.00 sec
+      Start 33: test_crypto
+33/46 Test #33: test_crypto ......................   Passed    0.00 sec
+      Start 34: test_wal_recovery
+34/46 Test #34: test_wal_recovery ................   Passed    0.00 sec
+      Start 35: test_healer_storm
+35/46 Test #35: test_healer_storm ................   Passed    0.01 sec
+      Start 36: test_crash_sentry
+36/46 Test #36: test_crash_sentry ................   Passed    0.00 sec
+      Start 37: test_e2e_loopback
+37/46 Test #37: test_e2e_loopback ................   Passed    0.04 sec
+      Start 38: test_thin_server
+38/46 Test #38: test_thin_server .................   Passed    0.07 sec
+      Start 39: test_replay_stitcher
+39/46 Test #39: test_replay_stitcher .............   Passed    0.00 sec
+      Start 40: demo_echo_smoke
+40/46 Test #40: demo_echo_smoke ..................   Passed    0.52 sec
+      Start 41: audit_hotpath
+41/46 Test #41: audit_hotpath ....................   Passed    0.06 sec
+      Start 42: audit_signal_safe
+42/46 Test #42: audit_signal_safe ................   Passed    0.03 sec
+      Start 43: audit_symbols
+43/46 Test #43: audit_symbols ....................   Passed    0.03 sec
+      Start 44: madobs_jni_failure
+44/46 Test #44: madobs_jni_failure ...............   Passed    0.00 sec
+      Start 45: madobs_jni_send_failure
+45/46 Test #45: madobs_jni_send_failure ..........   Passed    0.00 sec
+      Start 46: madobs_jvm
+46/46 Test #46: madobs_jvm .......................   Passed    8.80 sec
+
+100% tests passed out of 46
+
+Total Test time (real) =  11.74 sec

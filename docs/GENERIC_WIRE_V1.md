@@ -10,7 +10,9 @@ attribute_count u32-varint | {key u32-varint, enum_value u32-varint} * count`
 Maximum eight attributes; severity 0..5; unknown version and trailing bytes reject.
 Schema IDs and enum domains are Host-governed. No free-text, raw path, credential,
 message content or prompt fields exist. Arbitrary numeric IDs are not automatically
-privacy-safe; schema registration/redaction policy remains future work.
+privacy-safe. The optional privacy allowlist helper and owning PrivateRuntime
+now provide explicit schema minimization; raw generic emit/legacy logging do not
+automatically apply that policy. See `PRIVACY_SCHEMA.md` and `PRIVATE_RUNTIME.md`.
 
 The producer queue normalizes struct size/version and clears inactive attributes.
 Encoding and WAL append run only on the existing single consumer thread. The
@@ -20,3 +22,11 @@ semantics. Default Noop never starts this path.
 The bundled legacy thin server is not advertised as a generic query backend.
 Hosts opting into G1 must decode/support the record or explicitly reject it; do not
 silently claim compatibility with pre-G1 server deployments.
+
+
+The raw G1 decoder rejects integers exceeding five bytes/u32 range, but preserves
+compatibility by accepting some non-minimal varint encodings. Its successful
+result means structurally decoded, not canonical or policy-approved. The private
+export gate separately re-encodes and compares the full envelope, rejecting
+noncanonical historical wire representations. Do not substitute a raw decode
+success for private policy/export validation.

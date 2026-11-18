@@ -1,0 +1,194 @@
+-- imobs: 强加密提供方 = BoringSSL (/workspace/shared/madobs-stage8-artifacts/provider-build-original/libcrypto.a)
+-- Configuring done (2.9s)
+-- Generating done (0.2s)
+-- Build files have been written to: /workspace/shared/MadObs/build-boringssl
+[  2%] Built target test_madobs_privacy_strict
+[  3%] Built target test_madobs_api
+[  4%] Built target test_madobs_privacy_noexceptions
+[  6%] Built target test_madobs_privacy
+[  7%] Built target test_madobs_api_noexceptions
+[  9%] Built target test_madobs_api_cpp
+[ 27%] Built target imobs_core
+[ 46%] Built target imobs_shared
+[ 47%] Built target test_madobs_open_oom
+[ 49%] Built target test_madobs_provider_required
+[ 50%] Built target test_madobs_regressions
+[ 52%] Built target test_madobs_codec_faults
+[ 53%] Built target test_madobs_private_c
+[ 54%] Building CXX object CMakeFiles/test_madobs_boundary_properties.dir/tests/contract/test_boundary_properties.cc.o
+[ 55%] Built target test_madobs_private_runtime
+[ 56%] Built target test_madobs_bridge
+[ 57%] Built target test_clock
+[ 59%] Built target test_event_ring
+[ 60%] Built target test_schema
+[ 62%] Built target test_metrics
+[ 65%] Built target test_tdigest
+[ 65%] Built target test_wal_ring
+[ 67%] Built target test_wire
+[ 68%] Built target test_records
+[ 70%] Built target test_pipeline
+[ 70%] Built target test_kernel
+[ 71%] Built target test_healer
+[ 75%] Built target test_sha256
+[ 75%] Built target test_kernel_heal
+[ 78%] Built target test_log_store
+[ 78%] Built target test_kernel_policy
+[ 80%] Built target test_policy
+[ 81%] Built target test_ffi
+[ 84%] Built target test_stitcher
+[ 84%] Built target test_codec
+[ 86%] Built target test_crypto
+[ 88%] Built target test_wal_recovery
+[ 90%] Built target test_healer_storm
+[ 91%] Built target test_crash_sentry
+[ 92%] Built target test_e2e_loopback
+[ 93%] Built target test_thin_server
+[ 96%] Built target imobs_lited
+[ 96%] Built target test_replay_stitcher
+[ 98%] Built target imobs_echo_demo
+[ 99%] Built target bench_event_ring
+[100%] Linking CXX executable test_madobs_boundary_properties
+[100%] Built target test_madobs_boundary_properties
+Test project /workspace/shared/MadObs/build-boringssl
+      Start  1: madobs_privacy_strict
+ 1/44 Test  #1: madobs_privacy_strict ............   Passed    0.00 sec
+      Start  2: madobs_privacy_noexceptions
+ 2/44 Test  #2: madobs_privacy_noexceptions ......   Passed    0.00 sec
+      Start  3: madobs_privacy
+ 3/44 Test  #3: madobs_privacy ...................   Passed    0.00 sec
+      Start  4: madobs_api_c
+ 4/44 Test  #4: madobs_api_c .....................   Passed    0.00 sec
+      Start  5: madobs_api_cpp
+ 5/44 Test  #5: madobs_api_cpp ...................   Passed    0.00 sec
+      Start  6: madobs_api_noexceptions
+ 6/44 Test  #6: madobs_api_noexceptions ..........   Passed    0.00 sec
+      Start  7: madobs_provider_required
+ 7/44 Test  #7: madobs_provider_required .........   Passed    0.01 sec
+      Start  8: madobs_regressions
+ 8/44 Test  #8: madobs_regressions ...............   Passed    0.01 sec
+      Start  9: madobs_open_oom
+ 9/44 Test  #9: madobs_open_oom ..................   Passed    0.01 sec
+      Start 10: madobs_codec_faults
+10/44 Test #10: madobs_codec_faults ..............   Passed    0.01 sec
+      Start 11: madobs_private_c
+11/44 Test #11: madobs_private_c .................   Passed    0.02 sec
+      Start 12: madobs_private_runtime
+12/44 Test #12: madobs_private_runtime ...........Bus error***Exception:   0.26 sec
+
+      Start 13: madobs_boundary_properties
+13/44 Test #13: madobs_boundary_properties .......   Passed    0.05 sec
+      Start 14: madobs_bridge
+14/44 Test #14: madobs_bridge ....................Bus error***Exception:   0.01 sec
+
+      Start 15: test_clock
+15/44 Test #15: test_clock .......................   Passed    0.00 sec
+      Start 16: test_event_ring
+16/44 Test #16: test_event_ring ..................   Passed    0.01 sec
+      Start 17: test_schema
+17/44 Test #17: test_schema ......................   Passed    0.01 sec
+      Start 18: test_metrics
+18/44 Test #18: test_metrics .....................   Passed    0.00 sec
+      Start 19: test_wal_ring
+19/44 Test #19: test_wal_ring ....................Bus error***Exception:   0.00 sec
+
+      Start 20: test_tdigest
+20/44 Test #20: test_tdigest .....................   Passed    0.25 sec
+      Start 21: test_wire
+21/44 Test #21: test_wire ........................   Passed    0.02 sec
+      Start 22: test_pipeline
+22/44 Test #22: test_pipeline ....................Bus error***Exception:   0.00 sec
+
+      Start 23: test_records
+23/44 Test #23: test_records .....................   Passed    0.01 sec
+      Start 24: test_kernel
+24/44 Test #24: test_kernel ......................Bus error***Exception:   0.01 sec
+
+      Start 25: test_healer
+25/44 Test #25: test_healer ......................   Passed    0.00 sec
+      Start 26: test_kernel_heal
+26/44 Test #26: test_kernel_heal .................Bus error***Exception:   0.01 sec
+
+      Start 27: test_sha256
+27/44 Test #27: test_sha256 ......................   Passed    0.01 sec
+      Start 28: test_policy
+28/44 Test #28: test_policy ......................   Passed    0.01 sec
+      Start 29: test_kernel_policy
+29/44 Test #29: test_kernel_policy ...............Bus error***Exception:   0.01 sec
+
+      Start 30: test_log_store
+30/44 Test #30: test_log_store ...................Bus error***Exception:   0.01 sec
+
+      Start 31: test_ffi
+31/44 Test #31: test_ffi .........................Bus error***Exception:   0.01 sec
+
+      Start 32: test_stitcher
+32/44 Test #32: test_stitcher ....................Bus error***Exception:   0.00 sec
+
+      Start 33: test_codec
+33/44 Test #33: test_codec .......................   Passed    0.00 sec
+      Start 34: test_crypto
+34/44 Test #34: test_crypto ......................   Passed    0.01 sec
+      Start 35: test_wal_recovery
+35/44 Test #35: test_wal_recovery ................***Failed    0.00 sec
+[ RUN      ] WalRecovery.Kill9LosesNothing
+  [FAIL] /workspace/shared/MadObs/imobs/test/crash/test_wal_recovery.cc:50 ASSERT_TRUE(WIFEXITED(status))
+[     FAIL ] WalRecovery.Kill9LosesNothing
+[ RUN      ] WalRecovery.WatermarkSurvivesKill9
+  [FAIL] /workspace/shared/MadObs/imobs/test/crash/test_wal_recovery.cc:90 ASSERT_TRUE(WIFEXITED(status))
+[     FAIL ] WalRecovery.WatermarkSurvivesKill9
+== 2 case(s), 2 failure(s)
+
+      Start 36: test_healer_storm
+36/44 Test #36: test_healer_storm ................   Passed    0.02 sec
+      Start 37: test_crash_sentry
+37/44 Test #37: test_crash_sentry ................***Failed    0.00 sec
+[ RUN      ] CrashSentry.MarkerWrittenOnceAndCleared
+  [FAIL] /workspace/shared/MadObs/imobs/test/crash/test_crash_sentry.cc:60 ASSERT_TRUE(CrashChild(path, SIGABRT))
+[     FAIL ] CrashSentry.MarkerWrittenOnceAndCleared
+[ RUN      ] CrashSentry.BacktraceCapturedThroughNamedChain
+  [FAIL] /workspace/shared/MadObs/imobs/test/crash/test_crash_sentry.cc:84 ASSERT_TRUE(WIFSIGNALED(status) && WTERMSIG(status) == SIGILL)
+[     FAIL ] CrashSentry.BacktraceCapturedThroughNamedChain
+[ RUN      ] CrashSentry.CrashLoopDetectionWithinWindow
+  [FAIL] /workspace/shared/MadObs/imobs/test/crash/test_crash_sentry.cc:104 ASSERT_TRUE(CrashChild(path, SIGABRT))
+[     FAIL ] CrashSentry.CrashLoopDetectionWithinWindow
+== 3 case(s), 3 failure(s)
+
+      Start 38: test_e2e_loopback
+38/44 Test #38: test_e2e_loopback ................Bus error***Exception:   0.02 sec
+
+      Start 39: test_thin_server
+39/44 Test #39: test_thin_server .................Bus error***Exception:   0.01 sec
+
+      Start 40: test_replay_stitcher
+40/44 Test #40: test_replay_stitcher .............   Passed    0.00 sec
+      Start 41: demo_echo_smoke
+41/44 Test #41: demo_echo_smoke ..................Bus error***Exception:   0.01 sec
+
+      Start 42: audit_hotpath
+42/44 Test #42: audit_hotpath ....................   Passed    0.04 sec
+      Start 43: audit_signal_safe
+43/44 Test #43: audit_signal_safe ................   Passed    0.03 sec
+      Start 44: audit_symbols
+44/44 Test #44: audit_symbols ....................   Passed    0.03 sec
+
+66% tests passed, 15 tests failed out of 44
+
+Total Test time (real) =   0.95 sec
+
+The following tests FAILED:
+	 12 - madobs_private_runtime (Bus error)
+	 14 - madobs_bridge (Bus error)
+	 19 - test_wal_ring (Bus error)
+	 22 - test_pipeline (Bus error)
+	 24 - test_kernel (Bus error)
+	 26 - test_kernel_heal (Bus error)
+	 29 - test_kernel_policy (Bus error)
+	 30 - test_log_store (Bus error)
+	 31 - test_ffi (Bus error)
+	 32 - test_stitcher (Bus error)
+	 35 - test_wal_recovery (Failed)
+	 37 - test_crash_sentry (Failed)
+	 38 - test_e2e_loopback (Bus error)
+	 39 - test_thin_server (Bus error)
+	 41 - demo_echo_smoke (Bus error)
+Errors while running CTest
