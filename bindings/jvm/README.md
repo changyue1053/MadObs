@@ -58,8 +58,9 @@ The façade is not a security sandbox against reflective/native code in the same
 `-Xcheck:jni` tests include policy rejection/copying, UTF-8 paths, callback-close
 rejection, two-close drain waiting, emit/close race, exception NACK/replay, policy
 mismatch and repeated ownership churn. Synthetic JNI function-table injection
-checks GetObjectClass/GetMethodID failure short-circuiting and preservation of
-pending exceptions. It is **not** actual whole-JVM OOM testing: AttachCurrentThread,
-NewGlobalRef and NewByteArray failures have not all been injected. JVM plus native
+checks lookup/global-reference allocation failure short-circuiting and preservation
+of pending exceptions. Additional synthetic VM tables exercise attachment, array
+allocation/copy and callback failures, ACK/NACK, and attach/detach ownership. These
+are branch tests, **not** actual whole-JVM OOM or resource-exhaustion tests. JVM plus native
 ASan/TSan/LSan interoperability is not yet qualified. No classloader hot-unload,
 Android GC/runtime, Swift or OHOS tests are claimed.
