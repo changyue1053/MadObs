@@ -115,3 +115,11 @@ jobs:
           ctest --test-dir build-clang-api --output-on-failure
       - name: Clang installed package consumers
         run: scripts/verify-installed.sh
+  cross-compiler-package:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: GCC and Clang bidirectional installed consumers
+        run: scripts/verify-cross-compiler-package.sh
