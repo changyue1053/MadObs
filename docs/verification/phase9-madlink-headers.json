@@ -1,0 +1,41 @@
+{
+  "commit": "53668ab8a06ac09d07dcadefccbcf106b35dff79",
+  "files": [
+    {
+      "path": "adapters/obs/include/madlink/obs_adapter.h",
+      "sha256": "0d8fb5e4dcdc5db69c567acd766b261de13b47f764d2177edccd5529a9818225"
+    },
+    {
+      "path": "imlink/include/imlink/config.h",
+      "sha256": "c770729f7621c6cc6c74a7889ab74cbffebad3b3c02c4c05094d4ee91f2d16f1"
+    },
+    {
+      "path": "imlink/include/imlink/errors.h",
+      "sha256": "c641003087534e64dc0d89a302aa20f7abfa0b6e11d97ee378f5dbc2eb67cf2d"
+    },
+    {
+      "path": "imlink/include/imlink/imlink.h",
+      "sha256": "31b029456a0734c86f02929a11791dc9cf317cabea3bec68e538c312d6a17a74"
+    },
+    {
+      "path": "imlink/include/imlink/link_client.h",
+      "sha256": "aed45164d28a04992f30a94f5393fc58a1c18ada4c67dedb712431b2453b7f73"
+    },
+    {
+      "path": "imlink/include/imlink/request.h",
+      "sha256": "2c17f5685391c6c01bf71f879135c18322924746a904d7c0c28f8230f3c1072c"
+    },
+    {
+      "path": "imlink/include/imlink/result.h",
+      "sha256": "f785ea765f79b84770ffbc360bbd551e5fa3736422cb28d908ba80e2bfa902c2"
+    },
+    {
+      "path": "include/madlink/capabilities.h",
+      "sha256": "9b4a43d200e9bc816fceb5f85789b3dad6721ab8e7f3122eaa8a4a24f00c6a19"
+    },
+    {
+      "path": "include/madlink/madlink.h",
+      "sha256": "afc781803e1dcda610842682fef849a9a611e4d89017a29ba98b82cb767e33f2"
+    }
+  ]
+}
