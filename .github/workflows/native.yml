@@ -26,6 +26,9 @@ jobs:
           cmake -S . -B build-api -DMADOBS_BUILD_RUNTIME=OFF
           cmake --build build-api --parallel 4
           ctest --test-dir build-api --output-on-failure
+      - name: Fixed composition input-integrity contracts
+        if: matrix.build_type == 'Release'
+        run: python3 scripts/composition/test_prepare.py
       - name: Installed package contracts
         if: matrix.build_type == 'Release'
         run: scripts/verify-installed.sh

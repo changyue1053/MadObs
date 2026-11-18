@@ -1,0 +1,42 @@
+Commit: 5ddbbe9e3a6f1a4adc0f6ccf9a25635f9477df48
+Run: https://github.com/changyue1053/MadObs/actions/runs/44291666338
+Job: clang-release (134758138212), completed success
+2026-11-18T11:06:56.7913052Z /usr/bin/clang
+2026-11-18T11:06:56.7913430Z /usr/bin/clang++
+2026-11-18T11:06:58.8691632Z Ubuntu clang version 18.1.3 (1ubuntu1)
+2026-11-18T11:06:58.9310480Z Ubuntu clang version 18.1.3 (1ubuntu1)
+2026-11-18T11:07:00.6712964Z -- The C compiler identification is Clang 18.1.3
+2026-11-18T11:07:01.0946778Z -- The CXX compiler identification is Clang 18.1.3
+2026-11-18T11:07:01.4185170Z -- Check for working C compiler: /usr/bin/clang - skipped
+2026-11-18T11:07:01.5254545Z -- Check for working CXX compiler: /usr/bin/clang++ - skipped
+2026-11-18T11:07:41.2847656Z 100% tests passed, 0 tests failed out of 43
+2026-11-18T11:07:41.2847974Z Total Test time (real) =   2.77 sec
+2026-11-18T11:07:41.3526662Z -- The C compiler identification is Clang 18.1.3
+2026-11-18T11:07:41.4594050Z -- The CXX compiler identification is Clang 18.1.3
+2026-11-18T11:07:41.5319582Z -- Check for working C compiler: /usr/bin/clang - skipped
+2026-11-18T11:07:41.6334179Z -- Check for working CXX compiler: /usr/bin/clang++ - skipped
+2026-11-18T11:07:41.9560004Z 100% tests passed, 0 tests failed out of 6
+2026-11-18T11:07:41.9560271Z Total Test time (real) =   0.01 sec
+2026-11-18T11:07:42.0214284Z -- The C compiler identification is Clang 18.1.3
+2026-11-18T11:07:42.1252743Z -- The CXX compiler identification is Clang 18.1.3
+2026-11-18T11:07:42.1972195Z -- Check for working C compiler: /usr/bin/clang - skipped
+2026-11-18T11:07:42.2954123Z -- Check for working CXX compiler: /usr/bin/clang++ - skipped
+2026-11-18T11:07:42.3583783Z -- The C compiler identification is Clang 18.1.3
+2026-11-18T11:07:42.4269310Z -- Check for working C compiler: /usr/bin/clang - skipped
+2026-11-18T11:07:42.5485271Z -- The C compiler identification is Clang 18.1.3
+2026-11-18T11:07:42.6500276Z -- The CXX compiler identification is Clang 18.1.3
+2026-11-18T11:07:42.7181738Z -- Check for working C compiler: /usr/bin/clang - skipped
+2026-11-18T11:07:42.8144188Z -- Check for working CXX compiler: /usr/bin/clang++ - skipped
+2026-11-18T11:07:50.0840541Z -- The C compiler identification is Clang 18.1.3
+2026-11-18T11:07:50.1862098Z -- The CXX compiler identification is Clang 18.1.3
+2026-11-18T11:07:50.2542301Z -- Check for working C compiler: /usr/bin/clang - skipped
+2026-11-18T11:07:50.3536267Z -- Check for working CXX compiler: /usr/bin/clang++ - skipped
+2026-11-18T11:07:50.5370357Z -- The C compiler identification is Clang 18.1.3
+2026-11-18T11:07:50.6396611Z -- The CXX compiler identification is Clang 18.1.3
+2026-11-18T11:07:50.7102657Z -- Check for working C compiler: /usr/bin/clang - skipped
+2026-11-18T11:07:50.8108714Z -- Check for working CXX compiler: /usr/bin/clang++ - skipped
+2026-11-18T11:07:51.2898681Z -- The C compiler identification is Clang 18.1.3
+2026-11-18T11:07:51.3899543Z -- The CXX compiler identification is Clang 18.1.3
+2026-11-18T11:07:51.4580333Z -- Check for working C compiler: /usr/bin/clang - skipped
+2026-11-18T11:07:51.5577542Z -- Check for working CXX compiler: /usr/bin/clang++ - skipped
+2026-11-18T11:07:51.8854943Z PASS: API-only, relocated native C/C++11 consumers and wrong-version rejection

@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/workspace/shared/MadObs/scripts/composition/prepare.py", line 94, in <module>
+    main()
+  File "/workspace/shared/MadObs/scripts/composition/prepare.py", line 87, in main
+    copy_checked(source, args.output / 'archives' / name, lock['archives'][name])
+  File "/workspace/shared/MadObs/scripts/composition/prepare.py", line 50, in copy_checked
+    raise ValueError('input SHA256 mismatch: ' + str(source))
+ValueError: input SHA256 mismatch: /workspace/shared/madobs-composition-v2/corrupt-archive.a
+Real copied archive corruption rejected before invoking build
