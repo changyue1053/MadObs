@@ -9,8 +9,9 @@ Build/install creates `lib/libmadobs_jni.so` and
 `share/MadObs/java/madobs-jvm.jar`. Put the JAR on the classpath and the library
 folder on `java.library.path`. Use the JAR and native library from the same build;
 no cross-version Java/native compatibility is promised. `scripts/verify-jvm.sh` rebuilds and exercises the
-installed/relocated pair. The script tests the default null-provider runtime;
-optional BoringSSL JNI composition has not been tested. Provider archives must be
+installed/relocated pair. The script tests the default null-provider runtime. A separate fixed Linux
+configuration with the verified PIC BoringSSL provider has also passed; see
+../../docs/PHASE12_RESULT.md. This is not arbitrary provider/version compatibility. Provider archives must be
 PIC if linked into a shared binding. No JDK binary is redistributed here.
 
 ## Ownership and contract

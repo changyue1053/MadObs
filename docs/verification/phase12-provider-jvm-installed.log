@@ -1,0 +1,56 @@
+-- Install configuration: "Release"
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/madobs/libmadobs_boringssl_crypto.a
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/cmake/MadObs/MadObsBoringSSL.cmake
+-- Installing: /workspace/shared/madobs-jni-provider-installed/share/MadObs/licenses/BoringSSL-LICENSE
+-- Installing: /workspace/shared/madobs-jni-provider-installed/share/MadObs/licenses/Fiat-LICENSE
+-- Installing: /workspace/shared/madobs-jni-provider-installed/share/MadObs/licenses/Fiat-AUTHORS
+-- Installing: /workspace/shared/madobs-jni-provider-installed/share/MadObs/deps/boringssl.lock.json
+-- Installing: /workspace/shared/madobs-jni-provider-installed/share/MadObs/deps/boringssl-source-evidence.json
+-- Installing: /workspace/shared/madobs-jni-provider-installed/share/MadObs/deps/boringssl-binary-evidence.json
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/libmadobs_runtime.a
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/cmake/MadObs/MadObsRuntimeTargets.cmake
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/cmake/MadObs/MadObsRuntimeTargets-release.cmake
+-- Installing: /workspace/shared/madobs-jni-provider-installed/include/imobs/imobs_c.h
+-- Installing: /workspace/shared/madobs-jni-provider-installed/include/madobs/runtime.h
+-- Installing: /workspace/shared/madobs-jni-provider-installed/include/madobs/private.h
+-- Installing: /workspace/shared/madobs-jni-provider-installed/include/madobs/private_runtime.hpp
+-- Installing: /workspace/shared/madobs-jni-provider-installed/include/madobs/private_wal.hpp
+-- Installing: /workspace/shared/madobs-jni-provider-installed/include/madobs/observer.h
+-- Installing: /workspace/shared/madobs-jni-provider-installed/include/madobs/privacy.h
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/cmake/MadObs/MadObsApiTargets.cmake
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/cmake/MadObs/MadObsConfig.cmake
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/cmake/MadObs/MadObsConfigVersion.cmake
+-- Installing: /workspace/shared/madobs-jni-provider-installed/lib/libmadobs_jni.so
+-- Installing: /workspace/shared/madobs-jni-provider-installed/share/MadObs/java/madobs-jvm.jar
+JVM lifecycle, policy, exception, replay and concurrent close/emit passed
+000000000001cbf0 T JNI_OnLoad
+000000000001d070 T Java_org_madobs_PrivateRuntime_nClose
+000000000001ccf0 T Java_org_madobs_PrivateRuntime_nEmit
+000000000001cc20 T Java_org_madobs_PrivateRuntime_nFailures
+000000000001cc00 T Java_org_madobs_PrivateRuntime_nInCallback
+000000000001d470 T Java_org_madobs_PrivateRuntime_nOpen
+00000000000c6750 t EVP_AEAD_CTX_new
+8a715430ae5ca6f471206132ebbc69f54d42d7f495ec05beb6e028ca875a78c0  /workspace/shared/madobs-jni-provider-relocated/lib/madobs/libmadobs_boringssl_crypto.a
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3.1")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/shared/madobs-phase12-encrypted-consumer
+[ 50%] Building C object CMakeFiles/consumer.dir/main.c.o
+[100%] Linking CXX executable consumer
+[100%] Built target consumer
+Installed encrypted native consumer passed
