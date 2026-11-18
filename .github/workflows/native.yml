@@ -83,3 +83,32 @@ jobs:
         run: |
           export JAVA_HOME="$RUNNER_TEMP/jdk/jdk-21.0.13+9"
           scripts/verify-jvm.sh
+  clang-release:
+    runs-on: ubuntu-24.04
+    env:
+      CC: clang
+      CXX: clang++
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify compiler availability and record versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v "$CC"
+          command -v "$CXX"
+          "$CC" --version
+          "$CXX" --version
+      - name: Clang Release native contracts
+        run: |
+          cmake -S . -B build-clang -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-clang --parallel 4
+          ctest --test-dir build-clang --output-on-failure
+      - name: Clang API-only contracts
+        run: |
+          cmake -S . -B build-clang-api -DMADOBS_BUILD_RUNTIME=OFF
+          cmake --build build-clang-api --parallel 4
+          ctest --test-dir build-clang-api --output-on-failure
+      - name: Clang installed package consumers
+        run: scripts/verify-installed.sh
