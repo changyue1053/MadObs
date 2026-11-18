@@ -2,7 +2,8 @@
 
 Standalone observability SDK workbench. No IMSDK, no dependency on another Mad SDK.
 Existing native capabilities are preserved from the pinned IMObs baseline; this is
-not a blank rewrite or a claim of production readiness. No remote push/release has occurred.
+not a blank rewrite or a claim of production readiness. Owner-authorized source
+checkpoints are public; no product release or GA certification is implied.
 
 ## Build
 
@@ -89,3 +90,8 @@ checks fresh default null-provider native/API packages and relocation offline. T
 BoringSSL-enabled installation still embeds an external archive path and is NOT
 certified relocatable. Requested-version matching is exact; unversioned discovery
 remains compatible and does not imply a stable ABI guarantee.
+
+Optional real-provider packaging is now implemented and locally verified; see
+`docs/BORINGSSL_PACKAGE.md` and `docs/PHASE8_RESULT.md`. This supersedes the phase-7
+absolute-path packaging blocker for the explicitly verified bundled configuration.
+Static cross-SDK provider composition is still unverified and not symbol-isolated.

@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/google/boringssl",
+  "commit": "533902fb2e8fd0586db7d58879d697721726605a",
+  "archive_url": "https://codeload.github.com/google/boringssl/tar.gz/533902fb2e8fd0586db7d58879d697721726605a",
+  "archive_sha256": "47383a2562506ffeb6b76d6f2a9ee906c57425ee7fb07e54292b27c52aa9d6b6"
+}

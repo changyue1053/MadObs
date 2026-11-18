@@ -1,0 +1,8 @@
+{
+  "archive_sha256": "8a715430ae5ca6f471206132ebbc69f54d42d7f495ec05beb6e028ca875a78c0",
+  "madobs_cxx_compiler_id": "GNU",
+  "madobs_cxx_compiler_version": "14.2.0",
+  "system": "Linux",
+  "processor": "x86_64",
+  "scope": "Artifact identity only; not a reproducible-build or full SBOM attestation"
+}

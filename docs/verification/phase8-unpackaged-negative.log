@@ -1,0 +1,24 @@
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- imobs: 强加密提供方 = BoringSSL (/tmp/madobs-boringssl-pic/libcrypto.a)
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3.1")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/shared/madobs-stage8-artifacts/unpackaged-build
+-- Install configuration: ""
+CMake Error at /workspace/shared/madobs-stage8-artifacts/unpackaged-build/cmake_install.cmake:51 (message):
+  BoringSSL native package requires MADOBS_PACKAGE_BORINGSSL=ON and verified
+  source archive; no absolute-path provider export is allowed

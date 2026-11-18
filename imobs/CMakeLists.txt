@@ -55,7 +55,7 @@ set(IMOBS_SOURCES
 #   1) 显式双变量 IMOBS_BORINGSSL_INCLUDE + IMOBS_BORINGSSL_CRYPTO_LIB（交叉编译：
 #      boringssl 的 include/ 与逐平台 build-<plat>/libcrypto.a 分离）；
 #   2) IMOBS_BORINGSSL_ROOT（宿主便利：含 include/ 与 build/libcrypto.a）；
-#   3) 家族布局探测 ../../IMLink/imlink/third_party/boringssl；
+#   3) 不自动发现其他 SDK 中的依赖；
 #   4) 皆无 → 空提供方（crypto::Available()=false），独立构建永远成立。
 set(IMOBS_BORINGSSL_ROOT "" CACHE PATH "BoringSSL 根目录（含 include/ 与 build/libcrypto.a）")
 set(IMOBS_BORINGSSL_INCLUDE "" CACHE PATH "BoringSSL include 目录（显式注入，优先）")
@@ -64,6 +64,11 @@ if(IMOBS_BORINGSSL_INCLUDE STREQUAL "" OR IMOBS_BORINGSSL_CRYPTO_LIB STREQUAL ""
   if(NOT IMOBS_BORINGSSL_ROOT STREQUAL "" AND EXISTS "${IMOBS_BORINGSSL_ROOT}/build/libcrypto.a")
     set(IMOBS_BORINGSSL_INCLUDE "${IMOBS_BORINGSSL_ROOT}/include")
     set(IMOBS_BORINGSSL_CRYPTO_LIB "${IMOBS_BORINGSSL_ROOT}/build/libcrypto.a")
+  endif()
+endif()
+if(NOT IMOBS_BORINGSSL_ROOT STREQUAL "" OR NOT IMOBS_BORINGSSL_INCLUDE STREQUAL "" OR NOT IMOBS_BORINGSSL_CRYPTO_LIB STREQUAL "")
+  if(NOT EXISTS "${IMOBS_BORINGSSL_CRYPTO_LIB}" OR NOT EXISTS "${IMOBS_BORINGSSL_INCLUDE}/openssl/aead.h" OR NOT EXISTS "${IMOBS_BORINGSSL_INCLUDE}/openssl/curve25519.h")
+    message(FATAL_ERROR "Explicit BoringSSL provider is incomplete; refusing a silent null-provider fallback")
   endif()
 endif()
 if(NOT IMOBS_BORINGSSL_CRYPTO_LIB STREQUAL "" AND EXISTS "${IMOBS_BORINGSSL_CRYPTO_LIB}")
@@ -86,7 +91,11 @@ target_include_directories(imobs_core PUBLIC
 target_link_libraries(imobs_core PRIVATE ZLIB::ZLIB)
 if(IMOBS_HAVE_BORINGSSL)
   target_include_directories(imobs_core SYSTEM PRIVATE "${IMOBS_BORINGSSL_INCLUDE}")
-  target_link_libraries(imobs_core PUBLIC "${IMOBS_BORINGSSL_CRYPTO_LIB}")
+  find_package(Threads REQUIRED)
+  target_link_libraries(imobs_core PUBLIC "$<BUILD_INTERFACE:${IMOBS_BORINGSSL_CRYPTO_LIB}>" "$<INSTALL_INTERFACE:MadObs::BoringSSL>" Threads::Threads)
+  set_property(TARGET imobs_core PROPERTY MADOBS_USES_BORINGSSL TRUE)
+  set_property(TARGET imobs_core PROPERTY MADOBS_PROVIDER_INCLUDE "${IMOBS_BORINGSSL_INCLUDE}")
+  set_property(TARGET imobs_core PROPERTY MADOBS_PROVIDER_LIBRARY "${IMOBS_BORINGSSL_CRYPTO_LIB}")
 endif()
 
 # 共享库产物（宿主集成形态）：-fvisibility=hidden，仅导出 imobs_ C ABI；

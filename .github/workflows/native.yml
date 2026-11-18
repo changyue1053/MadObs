@@ -29,3 +29,36 @@ jobs:
       - name: Installed package contracts
         if: matrix.build_type == 'Release'
         run: scripts/verify-installed.sh
+  boringssl:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Fetch checksum-pinned upstream source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/provider"
+          URL=$(python3 -c 'import json;print(json.load(open("deps/boringssl.lock.json"))["archive_url"])')
+          SHA=$(python3 -c 'import json;print(json.load(open("deps/boringssl.lock.json"))["archive_sha256"])')
+          curl --fail --location --retry 2 --max-time 180 "$URL" -o "$RUNNER_TEMP/provider/source.tar.gz"
+          echo "$SHA  $RUNNER_TEMP/provider/source.tar.gz" | sha256sum --check --strict
+          tar -xzf "$RUNNER_TEMP/provider/source.tar.gz" -C "$RUNNER_TEMP/provider"
+      - name: Build real PIC provider and verify SDK
+        shell: bash
+        run: |
+          set -euo pipefail
+          REV=$(python3 -c 'import json;print(json.load(open("deps/boringssl.lock.json"))["commit"])')
+          SRC="$RUNNER_TEMP/provider/boringssl-$REV"
+          python3 scripts/verify-boringssl-source.py --archive "$RUNNER_TEMP/provider/source.tar.gz" --source "$SRC"
+          cmake -S "$SRC" -B "$RUNNER_TEMP/provider/build" -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+          cmake --build "$RUNNER_TEMP/provider/build" --target crypto --parallel 4
+          cmake -S . -B build-provider -DCMAKE_BUILD_TYPE=Release -DIMOBS_BORINGSSL_INCLUDE="$SRC/include" -DIMOBS_BORINGSSL_CRYPTO_LIB="$RUNNER_TEMP/provider/build/libcrypto.a" -DMADOBS_PACKAGE_BORINGSSL=ON -DMADOBS_BORINGSSL_SOURCE_ARCHIVE="$RUNNER_TEMP/provider/source.tar.gz"
+          cmake --build build-provider --parallel 4
+          ctest --test-dir build-provider --output-on-failure
+          cmake --install build-provider --prefix "$RUNNER_TEMP/installed"
+          cp -a "$RUNNER_TEMP/installed" "$RUNNER_TEMP/relocated"
+          cmake -S samples/encrypted_logs_c -B "$RUNNER_TEMP/consumer" -DCMAKE_BUILD_TYPE=Release -DMadObs_DIR="$RUNNER_TEMP/relocated/lib/cmake/MadObs"
+          cmake --build "$RUNNER_TEMP/consumer" --parallel 4
+          "$RUNNER_TEMP/consumer/consumer"

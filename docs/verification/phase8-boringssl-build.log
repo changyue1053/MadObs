@@ -1,0 +1,193 @@
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- imobs: 强加密提供方 = BoringSSL (/tmp/madobs-boringssl-pic/libcrypto.a)
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3.1")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found Python3: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12 (found suitable version "3.12.14", minimum required is "3.9") found components: Interpreter
+-- Configuring done (3.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /workspace/shared/MadObs/build-boringssl
+[  1%] Building C object CMakeFiles/test_madobs_privacy.dir/tests/contract/test_privacy.c.o
+[  2%] Building CXX object CMakeFiles/test_madobs_privacy_noexceptions.dir/tests/contract/test_privacy_cpp.cc.o
+[  2%] Building C object CMakeFiles/test_madobs_api.dir/tests/contract/test_api.c.o
+[  3%] Building CXX object CMakeFiles/test_madobs_privacy_strict.dir/tests/contract/test_privacy_cpp.cc.o
+[  4%] Linking C executable test_madobs_api
+[  4%] Linking CXX executable test_madobs_privacy_noexceptions
+[  5%] Linking CXX executable test_madobs_privacy_strict
+[  5%] Built target test_madobs_api
+[  6%] Building CXX object CMakeFiles/test_madobs_api_cpp.dir/tests/contract/test_api_cpp.cc.o
+[  6%] Built target test_madobs_privacy_noexceptions
+[  6%] Building CXX object CMakeFiles/test_madobs_api_noexceptions.dir/tests/contract/test_api_noexceptions.cc.o
+[  6%] Built target test_madobs_privacy_strict
+[  7%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/schema.cc.o
+[  8%] Linking C executable test_madobs_privacy
+[  9%] Linking CXX executable test_madobs_api_noexceptions
+[  9%] Built target test_madobs_privacy
+[  9%] Built target test_madobs_api_noexceptions
+[ 10%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/metrics.cc.o
+[ 11%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/schema.cc.o
+[ 12%] Linking CXX executable test_madobs_api_cpp
+[ 12%] Built target test_madobs_api_cpp
+[ 13%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/metrics.cc.o
+[ 13%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/tdigest.cc.o
+[ 14%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/tdigest.cc.o
+[ 15%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/records.cc.o
+[ 15%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/records.cc.o
+[ 16%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/pipeline/wal_ring.cc.o
+[ 17%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/pipeline/wal_ring.cc.o
+[ 18%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/pipeline/pipeline.cc.o
+[ 19%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/pipeline/pipeline.cc.o
+[ 20%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/health/healer.cc.o
+[ 21%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/policy/policy.cc.o
+[ 21%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/health/healer.cc.o
+[ 21%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/kernel/obs_kernel.cc.o
+[ 22%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/core/signal/log_store.cc.o
+[ 23%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/wire.cc.o
+[ 24%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/codec.cc.o
+[ 24%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/batch_view.cc.o
+[ 25%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/sha256.cc.o
+[ 26%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/tcp_channel.cc.o
+[ 27%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/platform/crash_sentry.cc.o
+[ 27%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/server/stitcher.cc.o
+[ 28%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/policy/policy.cc.o
+[ 29%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/server/collector.cc.o
+[ 30%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/server/thin_server.cc.o
+[ 31%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/kernel/obs_kernel.cc.o
+[ 32%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/api/ffi.cc.o
+[ 33%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/core/signal/log_store.cc.o
+[ 34%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/wire.cc.o
+[ 34%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/codec.cc.o
+[ 35%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/__/src/madobs_compat.cc.o
+[ 36%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/batch_view.cc.o
+[ 36%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/__/src/private_binding.cc.o
+[ 37%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/__/src/generic_events.cc.o
+[ 38%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/sha256.cc.o
+[ 39%] Building CXX object imobs/CMakeFiles/imobs_shared.dir/src/infra/crypto_boringssl.cc.o
+[ 40%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/tcp_channel.cc.o
+[ 40%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/platform/crash_sentry.cc.o
+[ 41%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/server/stitcher.cc.o
+[ 42%] Linking CXX shared library libmadobs_runtime.so
+[ 42%] Built target imobs_shared
+[ 43%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/server/collector.cc.o
+[ 44%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/server/thin_server.cc.o
+[ 44%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/api/ffi.cc.o
+[ 45%] Building CXX object imobs/CMakeFiles/imobs_core.dir/__/src/madobs_compat.cc.o
+[ 46%] Building CXX object imobs/CMakeFiles/imobs_core.dir/__/src/private_binding.cc.o
+[ 47%] Building CXX object imobs/CMakeFiles/imobs_core.dir/__/src/generic_events.cc.o
+[ 48%] Building CXX object imobs/CMakeFiles/imobs_core.dir/src/infra/crypto_boringssl.cc.o
+[ 48%] Linking CXX static library libmadobs_runtime.a
+[ 48%] Built target imobs_core
+[ 51%] Building CXX object CMakeFiles/test_madobs_codec_faults.dir/tests/contract/test_codec_faults.cc.o
+[ 51%] Building C object CMakeFiles/test_madobs_private_c.dir/tests/contract/test_private_c.c.o
+[ 51%] Building CXX object CMakeFiles/test_madobs_regressions.dir/tests/contract/test_regressions.cc.o
+[ 52%] Building CXX object CMakeFiles/test_madobs_private_runtime.dir/tests/contract/test_private_runtime.cc.o
+[ 52%] Linking CXX executable test_madobs_private_c
+[ 52%] Built target test_madobs_private_c
+[ 53%] Building CXX object CMakeFiles/test_madobs_bridge.dir/tests/contract/test_runtime_bridge.cc.o
+[ 53%] Linking CXX executable test_madobs_codec_faults
+[ 53%] Built target test_madobs_codec_faults
+[ 53%] Building CXX object imobs/CMakeFiles/test_clock.dir/test/unit/test_clock.cc.o
+[ 54%] Linking CXX executable test_clock
+[ 54%] Built target test_clock
+[ 55%] Building CXX object imobs/CMakeFiles/test_event_ring.dir/test/unit/test_event_ring.cc.o
+[ 56%] Linking CXX executable test_madobs_regressions
+[ 56%] Built target test_madobs_regressions
+[ 57%] Building CXX object imobs/CMakeFiles/test_schema.dir/test/unit/test_schema.cc.o
+[ 58%] Linking CXX executable test_madobs_private_runtime
+[ 59%] Linking CXX executable test_madobs_bridge
+[ 60%] Linking CXX executable test_event_ring
+[ 60%] Built target test_madobs_private_runtime
+[ 60%] Building CXX object imobs/CMakeFiles/test_metrics.dir/test/unit/test_metrics.cc.o
+[ 60%] Built target test_event_ring
+[ 61%] Building CXX object imobs/CMakeFiles/test_wal_ring.dir/test/unit/test_wal_ring.cc.o
+[ 61%] Built target test_madobs_bridge
+[ 62%] Building CXX object imobs/CMakeFiles/test_tdigest.dir/test/unit/test_tdigest.cc.o
+[ 63%] Linking CXX executable test_schema
+[ 63%] Built target test_schema
+[ 64%] Building CXX object imobs/CMakeFiles/test_wire.dir/test/unit/test_wire.cc.o
+[ 65%] Linking CXX executable test_metrics
+[ 65%] Built target test_metrics
+[ 66%] Building CXX object imobs/CMakeFiles/test_pipeline.dir/test/unit/test_pipeline.cc.o
+[ 67%] Linking CXX executable test_wire
+[ 67%] Built target test_wire
+[ 67%] Linking CXX executable test_tdigest
+[ 68%] Building CXX object imobs/CMakeFiles/test_records.dir/test/unit/test_records.cc.o
+[ 69%] Linking CXX executable test_wal_ring
+[ 69%] Built target test_tdigest
+[ 70%] Building CXX object imobs/CMakeFiles/test_kernel.dir/test/unit/test_kernel.cc.o
+[ 70%] Built target test_wal_ring
+[ 71%] Building CXX object imobs/CMakeFiles/test_healer.dir/test/unit/test_healer.cc.o
+[ 72%] Linking CXX executable test_records
+[ 72%] Built target test_records
+[ 73%] Building CXX object imobs/CMakeFiles/test_kernel_heal.dir/test/unit/test_kernel_heal.cc.o
+[ 74%] Linking CXX executable test_pipeline
+[ 74%] Built target test_pipeline
+[ 75%] Building CXX object imobs/CMakeFiles/test_sha256.dir/test/unit/test_sha256.cc.o
+[ 75%] Linking CXX executable test_sha256
+[ 75%] Built target test_sha256
+[ 75%] Building CXX object imobs/CMakeFiles/test_policy.dir/test/unit/test_policy.cc.o
+[ 76%] Linking CXX executable test_kernel
+[ 76%] Built target test_kernel
+[ 76%] Building CXX object imobs/CMakeFiles/test_kernel_policy.dir/test/unit/test_kernel_policy.cc.o
+[ 77%] Linking CXX executable test_healer
+[ 77%] Built target test_healer
+[ 78%] Building CXX object imobs/CMakeFiles/test_log_store.dir/test/unit/test_log_store.cc.o
+[ 79%] Linking CXX executable test_kernel_heal
+[ 79%] Built target test_kernel_heal
+[ 80%] Building CXX object imobs/CMakeFiles/test_ffi.dir/test/unit/test_ffi.cc.o
+[ 81%] Linking CXX executable test_policy
+[ 81%] Built target test_policy
+[ 82%] Linking CXX executable test_log_store
+[ 83%] Building CXX object imobs/CMakeFiles/test_stitcher.dir/test/unit/test_stitcher.cc.o
+[ 83%] Built target test_log_store
+[ 84%] Building CXX object imobs/CMakeFiles/test_codec.dir/test/unit/test_codec.cc.o
+[ 85%] Linking CXX executable test_codec
+[ 85%] Built target test_codec
+[ 86%] Building CXX object imobs/CMakeFiles/test_crypto.dir/test/unit/test_crypto.cc.o
+[ 86%] Linking CXX executable test_ffi
+[ 86%] Built target test_ffi
+[ 87%] Building CXX object imobs/CMakeFiles/test_wal_recovery.dir/test/crash/test_wal_recovery.cc.o
+[ 88%] Linking CXX executable test_crypto
+[ 88%] Built target test_crypto
+[ 89%] Building CXX object imobs/CMakeFiles/test_healer_storm.dir/test/chaos/test_healer_storm.cc.o
+[ 90%] Linking CXX executable test_kernel_policy
+[ 91%] Linking CXX executable test_stitcher
+[ 91%] Built target test_kernel_policy
+[ 91%] Built target test_stitcher
+[ 92%] Building CXX object imobs/CMakeFiles/test_e2e_loopback.dir/test/e2e/test_e2e_loopback.cc.o
+[ 92%] Building CXX object imobs/CMakeFiles/test_crash_sentry.dir/test/crash/test_crash_sentry.cc.o
+[ 92%] Linking CXX executable test_wal_recovery
+[ 92%] Built target test_wal_recovery
+[ 93%] Building CXX object imobs/CMakeFiles/test_thin_server.dir/test/e2e/test_thin_server.cc.o
+[ 94%] Linking CXX executable test_crash_sentry
+[ 94%] Built target test_crash_sentry
+[ 94%] Building CXX object imobs/CMakeFiles/test_replay_stitcher.dir/test/replay/test_replay_stitcher.cc.o
+[ 94%] Linking CXX executable test_healer_storm
+[ 94%] Built target test_healer_storm
+[ 95%] Building CXX object imobs/CMakeFiles/imobs_lited.dir/tools/imobs_lited.cc.o
+[ 96%] Linking CXX executable test_replay_stitcher
+[ 96%] Built target test_replay_stitcher
+[ 97%] Building CXX object imobs/CMakeFiles/imobs_echo_demo.dir/tools/imobs_echo_demo.cc.o
+[ 97%] Linking CXX executable test_e2e_loopback
+[ 97%] Built target test_e2e_loopback
+[ 97%] Building CXX object imobs/CMakeFiles/bench_event_ring.dir/test/perf/bench_event_ring.cc.o
+[ 97%] Linking CXX executable imobs_lited
+[ 97%] Built target imobs_lited
+[ 98%] Linking CXX executable test_thin_server
+[ 98%] Built target test_thin_server
+[ 99%] Linking CXX executable bench_event_ring
+[ 99%] Built target bench_event_ring
+[100%] Linking CXX executable imobs_echo_demo
+[100%] Built target imobs_echo_demo

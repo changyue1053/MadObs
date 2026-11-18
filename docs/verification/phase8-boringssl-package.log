@@ -1,0 +1,22 @@
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/lib/madobs/libmadobs_boringssl_crypto.a
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/lib/cmake/MadObs/MadObsBoringSSL.cmake
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/share/MadObs/licenses/BoringSSL-LICENSE
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/share/MadObs/licenses/Fiat-LICENSE
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/share/MadObs/licenses/Fiat-AUTHORS
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/share/MadObs/deps/boringssl.lock.json
+-- Installing: /workspace/shared/madobs-stage8-artifacts/latest-package/share/MadObs/deps/boringssl-source-evidence.json
+-- Installing: /workspace/shared/madobs-stage8-artifacts/latest-package/share/MadObs/deps/boringssl-binary-evidence.json
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/lib/libmadobs_runtime.a
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/lib/cmake/MadObs/MadObsRuntimeTargets.cmake
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/lib/cmake/MadObs/MadObsRuntimeTargets-release.cmake
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/include/imobs/imobs_c.h
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/include/madobs/runtime.h
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/include/madobs/private.h
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/include/madobs/private_runtime.hpp
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/include/madobs/private_wal.hpp
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/include/madobs/observer.h
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/include/madobs/privacy.h
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/lib/cmake/MadObs/MadObsApiTargets.cmake
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/lib/cmake/MadObs/MadObsConfig.cmake
+-- Up-to-date: /workspace/shared/madobs-stage8-artifacts/latest-package/lib/cmake/MadObs/MadObsConfigVersion.cmake

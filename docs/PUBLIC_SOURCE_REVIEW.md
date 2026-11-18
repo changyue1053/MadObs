@@ -25,3 +25,8 @@ persist-credentials:false, no secrets, no publishing/merging/release job.
 
 Local tests are documented by phase. GitHub CI result must be checked for the exact
 published commit separately; a workflow file is not evidence that CI has passed.
+
+Verified first full public checkpoint: 4a8dfa526b053d2634ed482c15557c3ef2abd245,
+Git tree 6e01aed5515ff124d6cde8b9078809795ca3c6ca, 188 files identical to local
+dbd9e67. GitHub native-contracts run 44280863383 completed successfully for that
+exact commit. Later provider increments require their own source/tree/CI verification.
