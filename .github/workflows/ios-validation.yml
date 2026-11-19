@@ -62,13 +62,8 @@ jobs:
         env:
           MADOBS_RUN_SIMULATOR: '1'
         run: |
-          mkdir -p build/ios-validation-logs
-          if ! bash scripts/test-ios-validation-simulator.sh >build/ios-validation-logs/simulator.log 2>&1; then
-            echo 'FAIL: iOS simulator or exact XCTest gate; diagnostics retained locally, not uploaded'
-            exit 1
-          fi
-          # Targeted JSON remains in memory; emit fixed names/counts only.
-          python3 scripts/check-ios-validation-results.py
+          # The script exposes only fixed stage labels and parser reasons.
+          bash scripts/test-ios-validation-simulator.sh
       - name: Verify tracked inputs were unchanged
         run: |
           if ! git diff --quiet; then

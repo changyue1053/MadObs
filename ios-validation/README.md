@@ -132,3 +132,27 @@ build is reported as such; API-only success never substitutes for it.
 - Existing contracts: [PUBLIC_API.md](../PUBLIC_API.md) and [platforms/README.md](../platforms/README.md).
 - Apple build-for-testing: https://developer.apple.com/library/archive/technotes/tn2339/_index.html
 - CMake iOS toolchains: https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html#cross-compiling-for-ios-tvos-or-watchos
+
+## Diagnostic follow-up
+
+The first hosted checkpoint (public commit `1badb77df670549ded985b4004bd831386cad334`,
+run `44462179943`) passed API-only verification, prerequisites and device/simulator
+build-for-testing. The Simulator step failed; its former combined diagnostic does
+not establish whether setup, execution or result parsing failed. No runtime success
+is claimed. This follow-up emits only fixed PASS/FAIL stages: sim-prerequisites,
+sim-create, sim-boot, sim-arm64, xctest-execute and named-result-parse. Parser
+rejection reasons distinguish missing count/status schema, incorrect counts/status,
+identifier mismatch, missing cases, query command failure/timeout and invalid JSON.
+No raw tool output, identifiers from results, paths, JSON or device logs are printed.
+
+The execution action deliberately remains `test`, with the existing ad-hoc signing
+flags. The earlier generic build-for-testing disabled signing, so changing directly
+to test-without-building would be an additional unverified installability change.
+There are no retries or altered native assertions in this diagnostic follow-up.
+
+Apple's [Xcode 16.3 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-16_3-release-notes)
+confirm the `get test-results summary` and `tests` commands. The reviewed official
+web documentation does not establish exact Xcode 26.2 JSON field/value schemas.
+This follow-up does not guess new schema aliases or relax named-case acceptance;
+it distinguishes schema failures so subsequent changes require measured evidence.
+Thirteen synthetic parser tests run locally; these are not real XCTest evidence.

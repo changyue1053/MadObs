@@ -14,9 +14,13 @@ def verify(summary, tests):
     if not isinstance(summary, dict) or not isinstance(tests, dict):
         raise ResultRejected('FAIL: unexpected XCTest result schema')
     for key, expected in [('totalTestCount', 2), ('passedTests', 2), ('failedTests', 0), ('skippedTests', 0)]:
-        if type(summary.get(key)) is not int or summary[key] != expected:
+        if type(summary.get(key)) is not int:
+            raise ResultRejected('FAIL: XCTest count schema mismatch')
+        if summary[key] != expected:
             raise ResultRejected('FAIL: expected exactly 2 passed, 0 failed and 0 skipped XCTest cases')
-    if summary.get('testStatus') != 'Passed' or summary.get('expectedFailures', 0) != 0:
+    if not isinstance(summary.get('testStatus'), str):
+        raise ResultRejected('FAIL: XCTest status schema mismatch')
+    if summary['testStatus'] != 'Passed' or summary.get('expectedFailures', 0) != 0:
         raise ResultRejected('FAIL: XCTest summary did not report a clean pass')
     roots = tests.get('testNodes')
     if not isinstance(roots, list):
@@ -34,8 +38,10 @@ def verify(summary, tests):
                 # Exact class/method identifiers, tolerating only optional empty parentheses.
                 if identifier in ('MadObsNativeTests/' + name, 'MadObsNativeTests/' + name + '()'):
                     matched = name
-            if matched is None or node.get('result') != 'Passed':
-                raise ResultRejected('FAIL: unexpected or nonpassing XCTest case')
+            if matched is None:
+                raise ResultRejected('FAIL: XCTest case identifier mismatch')
+            if node.get('result') != 'Passed':
+                raise ResultRejected('FAIL: XCTest case status missing')
             found.append(matched)
         children = node.get('children', [])
         if not isinstance(children, list):
@@ -56,8 +62,12 @@ def query(kind, path):
         if len(result.stdout) > 2 * 1024 * 1024:
             raise ResultRejected('FAIL: XCTest result exceeds the bounded validation scope')
         return json.loads(result.stdout)
-    except (OSError, subprocess.SubprocessError, ValueError):
-        raise ResultRejected('FAIL: unable to read targeted XCTest result JSON') from None
+    except subprocess.TimeoutExpired:
+        raise ResultRejected('FAIL: XCTest result query timeout') from None
+    except (OSError, subprocess.SubprocessError):
+        raise ResultRejected('FAIL: XCTest result query command failed') from None
+    except ValueError:
+        raise ResultRejected('FAIL: XCTest result JSON invalid') from None
 
 def main():
     path = Path(__file__).resolve().parents[1] / 'build/ios-validation/simulator/result.xcresult'
@@ -74,4 +84,8 @@ if __name__ == '__main__':
         main()
     except ResultRejected as error:
         print(str(error), file=sys.stderr)
+        sys.exit(1)
+    except Exception:
+        # Never expose unexpected parser exception text, paths or raw values.
+        print('FAIL: unexpected XCTest parser error', file=sys.stderr)
         sys.exit(1)
