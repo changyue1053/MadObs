@@ -63,3 +63,23 @@ target zlib library, zlib header, and each workspace/producer directory creation
 Target zlib paths and tool versions are unchanged. Missing sysroot/library/header
 and directory errors produce distinct fixed labels, never raw paths or tool text.
 Synthetic tests cover each case; actual NDK cross-build remains pending.
+
+Run 44491699183 passed producer build/install and failed independent consumer
+configuration. The consumer now receives exact MadObs_DIR at the moved package's
+lib/cmake/MadObs, rather than relying on CMAKE_PREFIX_PATH discovery through the
+Android cross-compilation root policy. Config, exact-version config and both
+export files must exist before configuration. The existing exact 0.1.0 package
+request and target-sysroot ZLIB dependency remain unchanged; global root lookup
+rules are not relaxed. This addresses a plausible discovery issue, not a claim
+that the suppressed CI error confirmed its cause. Configure failures now emit
+exactly one fixed category: package, dependency, try-compile, or other (including
+ambiguous/unrecognized errors), based on a bounded captured log tail. No raw
+message, path, environment or payload is emitted.
+
+MadObs lookup is restricted to the explicit moved config directory with
+NO_DEFAULT_PATH/NO_CMAKE_FIND_ROOT_PATH, only for that package lookup. The requested
+config must exist and the canonical resolved MadObs_CONFIG must equal the requested
+canonical config, or configuration fails with a fixed exact-config label. Normal
+NDK dependency lookup remains unchanged. Local source/label tests do not substitute
+for an actual CMake ambient-package negative test; CMake is unavailable locally.
+No hosted consumer success is claimed yet.

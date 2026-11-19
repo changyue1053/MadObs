@@ -3,14 +3,18 @@ import argparse, os, platform, re, shutil, struct, subprocess, tarfile, tempfile
 from contextlib import contextmanager
 from pathlib import Path
 NDK='28.2.13676358'
-STAGES={'host-preflight','pinned-tools','ndk-revision','cmake-version-parse','sysroot-directory','zlib-library','zlib-header','workspace-base','workspace-temp','producer-temp','producer-source','cmake-version','source-archive','producer-configure','producer-build','producer-install','consumer-configure','consumer-build','elf-inspection'}
+STAGES={'installed-config','host-preflight','pinned-tools','ndk-revision','cmake-version-parse','sysroot-directory','zlib-library','zlib-header','workspace-base','workspace-temp','producer-temp','producer-source','cmake-version','source-archive','producer-configure','producer-build','producer-install','consumer-configure','consumer-build','elf-inspection'}
 def run(args,stage,capture=False):
  if stage not in STAGES:raise ValueError('stage')
  print('ANDROID NATIVE START '+stage,flush=True)
  with tempfile.TemporaryFile() as log:
   try:subprocess.run([str(x) for x in args],stdout=log,stderr=log,check=True,timeout=600)
   except (OSError,subprocess.SubprocessError):
-   print('ANDROID NATIVE FAIL '+stage,flush=True);raise RuntimeError('tool failure') from None
+   print('ANDROID NATIVE FAIL '+stage,flush=True)
+   if stage=='consumer-configure':
+    log.seek(0,2);log.seek(max(0,log.tell()-131072))
+    print('ANDROID NATIVE CLASS '+configure_class(log.read(131072).decode('utf-8',errors='replace')),flush=True)
+   raise RuntimeError('tool failure') from None
   if capture:
    log.seek(0);data=log.read(65537)
    if len(data)>65536:raise ValueError('output bound')
@@ -18,6 +22,23 @@ def run(args,stage,capture=False):
   else:result=None
  print('ANDROID NATIVE PASS '+stage,flush=True)
  return result
+
+def configure_class(text):
+ # Emit exactly one fixed class; ambiguous or unrecognized errors stay other.
+ if not re.search(r'^CMake Error',text,re.M):return 'configure-other'
+ if re.search(r'(?m)^\s*MADOBS_EXACT_CONFIG_(?:REQUIRED|MISMATCH)\s*$',text):return 'configure-exact-config'
+ matches=[]
+ if re.search(r'Could NOT find ZLIB|Could not find a package configuration file provided by "ZLIB"',text):matches.append('dependency')
+ if re.search(r'Could not find a package configuration file provided by "MadObs"|Could not find a configuration file for package "MadObs"|Could not find a package configuration file provided by\s+"MadObs"',text):matches.append('package')
+ if re.search(r'is not able to compile a simple test program|Failed to configure test project build system|CMAKE_C_COMPILER.*not a full path',text):matches.append('try-compile')
+ return 'configure-'+(matches[0] if len(matches)==1 else 'other')
+
+def installed_config(prefix):
+ directory=prefix/'lib/cmake/MadObs'
+ with check('installed-config'):
+  for name in ['MadObsConfig.cmake','MadObsConfigVersion.cmake','MadObsApiTargets.cmake','MadObsRuntimeTargets.cmake']:
+   if not (directory/name).is_file():raise ValueError('installed package config incomplete')
+ return directory
 
 @contextmanager
 def check(stage):
@@ -102,9 +123,10 @@ def main():
   # Reject any exported reference to the now-deleted disposable producer.
   for config in (relocated/'lib/cmake/MadObs').glob('*.cmake'):
    assert str(producer) not in config.read_text()
+  config_directory=installed_config(relocated)
   consumer=work/'independent consumer';shutil.copytree(root/'android-native/consumer',consumer)
   build=work/'consumer-build'
-  run([cmake,'-S',consumer,'-B',build,'-G','Ninja',*common,f'-DCMAKE_PREFIX_PATH={relocated}',
+  run([cmake,'-S',consumer,'-B',build,'-G','Ninja',*common,f'-DMadObs_DIR={config_directory}',
        '-DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF','-DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF'],'consumer-configure')
   run([cmake,'--build',build,'--parallel','3'],'consumer-build')
   inspect_elf(build/'madobs_c_smoke');assert not producer.exists()

@@ -58,3 +58,29 @@ with tempfile.TemporaryDirectory() as tmp:
   except OSError:pass
  assert 'SECRET' not in out.getvalue() and 'FAIL workspace-base' in out.getvalue()
 print('PASS: exact CMake tuple/suffix parsing and mutually exclusive fixed preflight failure labels')
+from verify import configure_class, installed_config
+assert configure_class('CMake Error at CMakeLists.txt:6 (find_package):\n Could not find a package configuration file provided by "MadObs"')=='configure-package'
+assert configure_class('CMake Error at dependency.cmake:1:\n Could NOT find ZLIB')=='configure-dependency'
+assert configure_class('CMake Error at compiler.cmake:1:\n is not able to compile a simple test program')=='configure-try-compile'
+assert configure_class('progress Could NOT find ZLIB /SECRET')=='configure-other'
+assert configure_class('CMake Error:\n Could NOT find ZLIB\n is not able to compile a simple test program')=='configure-other'
+with tempfile.TemporaryDirectory() as tmp:
+ prefix=Path(tmp);config=prefix/'lib/cmake/MadObs';config.mkdir(parents=True)
+ out=io.StringIO()
+ with contextlib.redirect_stdout(out):
+  try:installed_config(prefix)
+  except ValueError:pass
+  else:raise AssertionError('missing config accepted')
+  for name in ['MadObsConfig.cmake','MadObsConfigVersion.cmake','MadObsApiTargets.cmake','MadObsRuntimeTargets.cmake']:(config/name).touch()
+  assert installed_config(prefix)==config
+ assert str(prefix) not in out.getvalue()
+print('PASS: explicit installed config presence and one fixed configure failure classification')
+
+assert configure_class('CMake Error at CMakeLists.txt:10:\n  MADOBS_EXACT_CONFIG_MISMATCH\n')=='configure-exact-config'
+assert configure_class('progress MADOBS_EXACT_CONFIG_MISMATCH')=='configure-other'
+cmake=(Path(__file__).parent/'consumer/CMakeLists.txt').read_text()
+assert 'PATHS "${MadObs_DIR}" NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH' in cmake
+assert 'file(REAL_PATH "${MadObs_CONFIG}" actual_madobs_config)' in cmake
+assert 'actual_madobs_config STREQUAL expected_madobs_config' in cmake
+assert 'CMAKE_FIND_ROOT_PATH_MODE' not in cmake
+print('PASS: fixed exact-config failure label and source guard; real CMake fallback test NOT RUN')
