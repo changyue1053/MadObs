@@ -1,0 +1,32 @@
+name: Android unsigned native APK packaging preview
+on:
+  push:
+    branches: [checkpoint/madobs-android-apk-preview]
+permissions:
+  contents: read
+jobs:
+  unsigned-package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+      - name: Exact source
+        run: test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+      - name: Existing official agreements only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/android-apk
+          python3 android-apk/toolchain.py "$ANDROID_HOME" build/android-apk/sdk.log
+      - name: Structural negative checks
+        run: |
+          python3 android-apk/test_package.py
+          python3 android-apk/test_toolchain.py
+      - name: Existing native acceptance unchanged
+        run: python3 android-native/verify.py --sdk "$ANDROID_HOME"
+      - name: Independently installed SDK into unsigned native-only APK
+        run: python3 android-apk/verify.py --sdk "$ANDROID_HOME"
+      # No uploads, signing, managed code, Gradle, app/device execution or telemetry.
