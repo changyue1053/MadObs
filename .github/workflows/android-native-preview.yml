@@ -1,0 +1,31 @@
+name: Android native installed SDK preview
+'on':
+  push:
+    branches: [checkpoint/madobs-android-native-preview]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-package-link:
+    if: github.ref == 'refs/heads/checkpoint/madobs-android-native-preview'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+      - name: Verify exact event commit
+        run: test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+      - name: Exact official NDK and CMake with existing runner licenses
+        run: |
+          if ! "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install 'ndk;28.2.13676358' 'cmake;3.22.1' < /dev/null > /tmp/madobs-native-sdk.log 2>&1; then
+            echo 'FAIL: exact official SDK tool provisioning'
+            exit 1
+          fi
+      - name: Static and negative checks
+        run: python3 android-native/test_verify.py
+      - name: Relocated independent native C consumer (no device execution)
+        run: |
+          python3 android-native/verify.py --sdk "$ANDROID_HOME"
+          echo 'PASS: standalone relocated C ABI static SDK linked into ARM64 ELF with >=16 KiB LOAD alignment. No APK, JNI, Android runtime, encryption or distribution proof.' >> "$GITHUB_STEP_SUMMARY"
