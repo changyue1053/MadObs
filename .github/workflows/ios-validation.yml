@@ -1,0 +1,82 @@
+name: MadObs iOS checkpoint verification
+on:
+  push:
+    branches: [checkpoint/madobs-ios-validation]
+permissions:
+  contents: read
+concurrency:
+  group: madobs-ios-validation-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    # Defense in depth: this definition never runs for main, tags, or PR events.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/checkpoint/madobs-ios-validation'
+    runs-on: macos-15
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: bash
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
+    steps:
+      - name: Check out the public candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+          submodules: false
+          lfs: false
+          show-progress: false
+      - name: Verify genuinely API-only consumption and source consistency
+        run: |
+          bash scripts/verify-ios-api-only.sh
+          PYTHONDONTWRITEBYTECODE=1 python3 scripts/check-ios-validation-source.py
+          PYTHONDONTWRITEBYTECODE=1 python3 scripts/test-ios-validation-results.py
+          bash -n scripts/build-ios-validation.sh scripts/test-ios-validation-simulator.sh
+      - name: Require preinstalled Apple tools, target zlib and simulator runtime
+        run: |
+          test "$(uname -m)" = arm64
+          test "$(xcodebuild -version)" = $'Xcode 26.2\nBuild version 17C52'
+          cmake --version | head -n 1
+          for sdk in iphoneos iphonesimulator; do
+            test "$(xcrun --sdk "$sdk" --show-sdk-version)" = 26.2
+            sdkroot=$(xcrun --sdk "$sdk" --show-sdk-path)
+            test -f "$sdkroot/usr/include/zlib.h"
+            test -f "$sdkroot/usr/lib/libz.tbd"
+          done
+          xcrun simctl list runtimes available -j | python3 -c '
+          import json,sys
+          present = any(r["identifier"] == "com.apple.CoreSimulator.SimRuntime.iOS-26-2" and r["isAvailable"] for r in json.load(sys.stdin)["runtimes"])
+          if not present: raise SystemExit("Required preinstalled iOS 26.2 runtime missing; no download or fallback permitted")
+          '
+          # Missing dependencies fail this job, never a green skip or tool installer.
+      - name: Build both real ARM64 archives and independent application tests
+        run: |
+          mkdir -p build/ios-validation-logs
+          if ! bash scripts/build-ios-validation.sh >build/ios-validation-logs/build.log 2>&1; then
+            echo 'FAIL: iOS build/link validation; diagnostics retained locally, not uploaded'
+            exit 1
+          fi
+          echo 'PASS: device and simulator build-for-testing (not runtime proof)'
+      - name: Run synthetic local runtime tests on the job-owned ARM64 simulator
+        env:
+          MADOBS_RUN_SIMULATOR: '1'
+        run: |
+          mkdir -p build/ios-validation-logs
+          if ! bash scripts/test-ios-validation-simulator.sh >build/ios-validation-logs/simulator.log 2>&1; then
+            echo 'FAIL: iOS simulator or exact XCTest gate; diagnostics retained locally, not uploaded'
+            exit 1
+          fi
+          # Targeted JSON remains in memory; emit fixed names/counts only.
+          python3 scripts/check-ios-validation-results.py
+      - name: Verify tracked inputs were unchanged
+        run: |
+          if ! git diff --quiet; then
+            echo 'FAIL: tracked verification inputs changed'
+            exit 1
+          fi
+          echo 'PASS: tracked verification inputs unchanged'
+      # Build/device output remains in ignored local logs. Only fixed gate summaries are emitted.
+      # No raw event payloads, result JSON, checkout file diffs or environment dumps.
+      # No artifact/log uploads, external packages, signing identities, Apple accounts,
+      # physical devices, network exporter endpoints, releases, or package publication.
