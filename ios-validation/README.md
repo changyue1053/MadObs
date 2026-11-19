@@ -156,3 +156,19 @@ web documentation does not establish exact Xcode 26.2 JSON field/value schemas.
 This follow-up does not guess new schema aliases or relax named-case acceptance;
 it distinguishes schema failures so subsequent changes require measured evidence.
 Thirteen synthetic parser tests run locally; these are not real XCTest evidence.
+
+### Optional summary metadata correction
+
+Hosted run `44463495465` at public commit
+`aeb0d50a0301dba6ff7de5b86e530a80b4912a2c` passed device/simulator builds,
+simulator boot, ARM64 confirmation and xctest-execute. The parser reached a
+summary status schema rejection after verifying exact counts 2/2/0/0. This does
+not yet establish acceptance of the two exact named cases.
+
+The top-level `testStatus` is now optional supplemental metadata. When present,
+the existing sole accepted value remains `Passed`; unknown aliases, wrong types
+and contradictory values fail closed. No new representation is inferred. Its
+absence never substitutes for mandatory integer counts, two unique exact case
+identifiers and their explicit `Passed` results. Structural checks and failed
+nested-attempt rejection remain unchanged. Fifteen synthetic parser tests pass;
+real named-result acceptance still awaits a hosted run of this correction.

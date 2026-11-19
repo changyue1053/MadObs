@@ -18,9 +18,11 @@ def verify(summary, tests):
             raise ResultRejected('FAIL: XCTest count schema mismatch')
         if summary[key] != expected:
             raise ResultRejected('FAIL: expected exactly 2 passed, 0 failed and 0 skipped XCTest cases')
-    if not isinstance(summary.get('testStatus'), str):
+    # Supplemental only: exact counts and named case results remain mandatory.
+    # Do not infer alternate status fields/values from an absent optional field.
+    if 'testStatus' in summary and not isinstance(summary['testStatus'], str):
         raise ResultRejected('FAIL: XCTest status schema mismatch')
-    if summary['testStatus'] != 'Passed' or summary.get('expectedFailures', 0) != 0:
+    if ('testStatus' in summary and summary['testStatus'] != 'Passed') or summary.get('expectedFailures', 0) != 0:
         raise ResultRejected('FAIL: XCTest summary did not report a clean pass')
     roots = tests.get('testNodes')
     if not isinstance(roots, list):

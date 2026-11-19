@@ -61,11 +61,28 @@ class DiagnosticTests(unittest.TestCase):
         a,b=fixture(); a['totalTestCount']=1
         self.rejected(a,b,'FAIL: expected exactly 2 passed, 0 failed and 0 skipped XCTest cases')
 
-    def test_status_schema_distinct_from_nonpassing_summary(self):
+    def test_optional_summary_status_absent_or_passed(self):
         a,b=fixture(); a.pop('testStatus')
-        self.rejected(a,b,'FAIL: XCTest status schema mismatch')
-        a,b=fixture(); a['testStatus']='Failed'
-        self.rejected(a,b,'FAIL: XCTest summary did not report a clean pass')
+        gate.verify(a,b)
+        gate.verify(*fixture())
+
+    def test_optional_summary_status_invalid_or_contradictory(self):
+        for value in (None, 1, {}, []):
+            a,b=fixture(); a['testStatus']=value
+            self.rejected(a,b,'FAIL: XCTest status schema mismatch')
+        for value in ('Failed', 'Skipped', 'Success', ''):
+            a,b=fixture(); a['testStatus']=value
+            self.rejected(a,b,'FAIL: XCTest summary did not report a clean pass')
+
+    def test_absent_summary_status_cannot_substitute_for_identity_or_result(self):
+        for key, reason in [('nodeIdentifier','FAIL: XCTest case identifier mismatch'),
+                            ('result','FAIL: XCTest case status missing')]:
+            a,b=fixture(); a.pop('testStatus')
+            b['testNodes'][0]['children'][0].pop(key)
+            self.rejected(a,b,reason)
+        a,b=fixture(); a.pop('testStatus')
+        b['testNodes'][0]['children'][1]=copy.deepcopy(b['testNodes'][0]['children'][0])
+        self.rejected(a,b,'FAIL: missing, duplicated or additional XCTest case')
 
     def test_identifier_distinct_from_case_status(self):
         a,b=fixture(); b['testNodes'][0]['children'][0]['nodeIdentifier']='untrusted-value'
