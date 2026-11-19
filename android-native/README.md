@@ -49,3 +49,17 @@ Official references:
 - https://developer.android.com/ndk/guides/cmake
 - https://developer.android.com/ndk/guides/stable_apis
 - https://developer.android.com/guide/practices/page-sizes
+
+CI run 44489885004 passed tool invocation but stopped before source archive. The
+previous version check required an immediate LF after `3.22.1`, so valid CRLF or
+CMake git-suffixed version strings were rejected. The parser now requires the exact
+3.22.1 tuple while accepting a hexadecimal `-g` suffix (optionally `-dirty`) and
+normalizing line endings. This is a source-proven parser defect, not confirmation
+of the suppressed CI output or sole cause. CMake's own version construction:
+https://github.com/Kitware/CMake/blob/v3.22.1/Source/CMakeVersion.cmake
+
+Separate fixed preflight stages identify version parsing, sysroot directory,
+target zlib library, zlib header, and each workspace/producer directory creation.
+Target zlib paths and tool versions are unchanged. Missing sysroot/library/header
+and directory errors produce distinct fixed labels, never raw paths or tool text.
+Synthetic tests cover each case; actual NDK cross-build remains pending.

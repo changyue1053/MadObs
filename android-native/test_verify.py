@@ -30,3 +30,31 @@ with tempfile.TemporaryDirectory() as tmp:
  except ValueError:pass
  else:raise AssertionError('unknown stage accepted')
 print('PASS: ARM64 PIE/alignment negative cases and fixed-output subprocess failure')
+from verify import cmake_version_ok, target_zlib, check
+for version in ['cmake version 3.22.1\n','cmake version 3.22.1\r\n','cmake version 3.22.1-g123abc\n','cmake version 3.22.1-g123abc-dirty\r\n']:
+ assert cmake_version_ok(version)
+for version in ['', 'cmake version 3.22.10\n', 'cmake version 3.22.2\n', 'cmake version 3.22.1-secret', 'secret\ncmake version 3.22.1\n']:
+ assert not cmake_version_ok(version)
+with tempfile.TemporaryDirectory() as tmp:
+ ndk=Path(tmp);sysroot=ndk/'toolchains/llvm/prebuilt/linux-x86_64/sysroot'
+ for failing in ['sysroot-directory','zlib-library','zlib-header',None]:
+  out=io.StringIO()
+  with contextlib.redirect_stdout(out):
+   try:target_zlib(ndk)
+   except ValueError:
+    assert failing is not None
+   else:assert failing is None
+  failures=[line for line in out.getvalue().splitlines() if ' FAIL ' in line]
+  assert failures==([] if failing is None else ['ANDROID NATIVE FAIL '+failing])
+  if failing=='sysroot-directory':sysroot.mkdir(parents=True)
+  elif failing=='zlib-library':
+   library=sysroot/'usr/lib/aarch64-linux-android/24/libz.so';library.parent.mkdir(parents=True);library.touch()
+  elif failing=='zlib-header':
+   header=sysroot/'usr/include/zlib.h';header.parent.mkdir();header.touch()
+ out=io.StringIO()
+ with contextlib.redirect_stdout(out):
+  try:
+   with check('workspace-base'):raise OSError('SECRET PATH')
+  except OSError:pass
+ assert 'SECRET' not in out.getvalue() and 'FAIL workspace-base' in out.getvalue()
+print('PASS: exact CMake tuple/suffix parsing and mutually exclusive fixed preflight failure labels')

@@ -1,8 +1,9 @@
 """Local build/link only. No APK, JNI, device, runtime execution or publication."""
-import argparse, os, platform, shutil, struct, subprocess, tarfile, tempfile
+import argparse, os, platform, re, shutil, struct, subprocess, tarfile, tempfile
+from contextlib import contextmanager
 from pathlib import Path
 NDK='28.2.13676358'
-STAGES={'cmake-version','source-archive','producer-configure','producer-build','producer-install','consumer-configure','consumer-build','elf-inspection'}
+STAGES={'host-preflight','pinned-tools','ndk-revision','cmake-version-parse','sysroot-directory','zlib-library','zlib-header','workspace-base','workspace-temp','producer-temp','producer-source','cmake-version','source-archive','producer-configure','producer-build','producer-install','consumer-configure','consumer-build','elf-inspection'}
 def run(args,stage,capture=False):
  if stage not in STAGES:raise ValueError('stage')
  print('ANDROID NATIVE START '+stage,flush=True)
@@ -17,6 +18,31 @@ def run(args,stage,capture=False):
   else:result=None
  print('ANDROID NATIVE PASS '+stage,flush=True)
  return result
+
+@contextmanager
+def check(stage):
+ if stage not in STAGES:raise ValueError('stage')
+ print('ANDROID NATIVE START '+stage,flush=True)
+ try:yield
+ except Exception:
+  print('ANDROID NATIVE FAIL '+stage,flush=True);raise
+ print('ANDROID NATIVE PASS '+stage,flush=True)
+
+def cmake_version_ok(text):
+ # Exact release tuple; tolerate CRLF and CMake's git build suffix, not 3.22.10.
+ first=text.splitlines()[0] if text else ''
+ return re.fullmatch(r'cmake version 3\.22\.1(?:-g[0-9a-f]+(?:-dirty)?)?',first) is not None
+
+def target_zlib(ndk):
+ sysroot=ndk/'toolchains/llvm/prebuilt/linux-x86_64/sysroot'
+ with check('sysroot-directory'):
+  if not sysroot.is_dir():raise ValueError('sysroot absent')
+ zlib=sysroot/'usr/lib/aarch64-linux-android/24/libz.so';headers=sysroot/'usr/include'
+ with check('zlib-library'):
+  if not zlib.is_file():raise ValueError('target library absent')
+ with check('zlib-header'):
+  if not (headers/'zlib.h').is_file():raise ValueError('target header absent')
+ return zlib,headers
 
 def inspect_elf(path):
  data=path.read_bytes()
@@ -39,22 +65,28 @@ def inspect_elf(path):
 
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--sdk',required=True);args=parser.parse_args()
- if platform.system()!='Linux' or platform.machine()!='x86_64':raise ValueError('Linux x86_64 required')
+ with check('host-preflight'):
+  if platform.system()!='Linux' or platform.machine()!='x86_64':raise ValueError('Linux x86_64 required')
  root=Path(__file__).resolve().parents[1];sdk=Path(args.sdk).resolve();ndk=sdk/'ndk'/NDK
  cmake=sdk/'cmake/3.22.1/bin/cmake';ninja=sdk/'cmake/3.22.1/bin/ninja'
- if not all(x.is_file() for x in [cmake,ninja,ndk/'build/cmake/android.toolchain.cmake',ndk/'source.properties']):
-  print('NOT RUN: pinned NDK/CMake unavailable');raise ValueError('pinned tools unavailable')
- if 'Pkg.Revision = '+NDK not in (ndk/'source.properties').read_text():raise ValueError('NDK version')
- if not run([cmake,'--version'],'cmake-version',True).startswith('cmake version 3.22.1\n'):raise ValueError('CMake version')
- sysroot=ndk/'toolchains/llvm/prebuilt/linux-x86_64/sysroot'
- zlib=sysroot/'usr/lib/aarch64-linux-android/24/libz.so';headers=sysroot/'usr/include'
- if not zlib.is_file() or not (headers/'zlib.h').is_file():raise ValueError('target zlib unavailable')
+ with check('pinned-tools'):
+  if not all(x.is_file() for x in [cmake,ninja,ndk/'build/cmake/android.toolchain.cmake',ndk/'source.properties']):raise ValueError('pinned tools unavailable')
+ with check('ndk-revision'):
+  if 'Pkg.Revision = '+NDK not in (ndk/'source.properties').read_text():raise ValueError('NDK version')
+ version=run([cmake,'--version'],'cmake-version',True)
+ with check('cmake-version-parse'):
+  if not cmake_version_ok(version):raise ValueError('CMake version')
+ zlib,headers=target_zlib(ndk)
  common=[f'-DCMAKE_TOOLCHAIN_FILE={ndk}/build/cmake/android.toolchain.cmake','-DANDROID_ABI=arm64-v8a','-DANDROID_PLATFORM=android-24','-DANDROID_STL=c++_static',f'-DCMAKE_MAKE_PROGRAM={ninja}','-DCMAKE_BUILD_TYPE=Release',f'-DZLIB_INCLUDE_DIR={headers}',f'-DZLIB_LIBRARY={zlib}']
- base=root/'build/android-native';base.mkdir(parents=True,exist_ok=True)
- with tempfile.TemporaryDirectory(prefix='check-',dir=base) as work_string:
+ base=root/'build/android-native'
+ with check('workspace-base'):base.mkdir(parents=True,exist_ok=True)
+ with check('workspace-temp'):work_context=tempfile.TemporaryDirectory(prefix='check-',dir=base)
+ with work_context as work_string:
   work=Path(work_string)
-  with tempfile.TemporaryDirectory(prefix='producer-',dir=work) as temporary:
-   producer=Path(temporary);source=producer/'source';source.mkdir();tarpath=producer/'source.tar'
+  with check('producer-temp'):producer_context=tempfile.TemporaryDirectory(prefix='producer-',dir=work)
+  with producer_context as temporary:
+   producer=Path(temporary);source=producer/'source';tarpath=producer/'source.tar'
+   with check('producer-source'):source.mkdir()
    run(['git','-C',root,'archive','--format=tar','-o',tarpath,'HEAD'],'source-archive')
    with tarfile.open(tarpath) as tar:tar.extractall(source,filter='data')
    build=producer/'build';prefix=producer/'installed'
