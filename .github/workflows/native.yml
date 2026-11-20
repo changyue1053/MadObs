@@ -1,6 +1,9 @@
 name: native-contracts
 on:
   push:
+    # This exact branch uses its standalone no-download C package workflow.
+    branches-ignore: [checkpoint/madobs-installed-lease-handoff]
+    tags: ['**']
   pull_request:
 permissions:
   contents: read

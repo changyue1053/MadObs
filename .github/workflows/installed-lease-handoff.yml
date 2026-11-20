@@ -1,0 +1,30 @@
+name: MadObs installed C lease handoff
+'on':
+  push:
+    branches: [checkpoint/madobs-installed-lease-handoff]
+permissions:
+  contents: read
+jobs:
+  installed-c:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/checkpoint/madobs-installed-lease-handoff'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: false
+          lfs: false
+      - name: Exact source and stock host
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          test "$(uname -s)" = Linux
+          test "$(uname -m)" = x86_64
+      - name: Independent installed C apps and local failure isolation
+        run: |
+          python3 -I -B samples/installed_lease/test_verify.py
+          python3 -I -B samples/installed_lease/verify.py
+          printf '%s\n' 'Linux host: isolated installed C consumers, canonical local exporter rejection and peer progress, policy-bound live lease handoff. No remote delivery, replay guarantee, power-loss or mobile qualification.' >> "$GITHUB_STEP_SUMMARY"
