@@ -1,12 +1,12 @@
 name: Internal iOS static XCFramework validation
 'on':
   push:
-    branches: [checkpoint/madobs-ios-xcframework-preview]
+    branches: [checkpoint/madobs-ios-xcframework-preview, checkpoint/madobs-ios-runtime-isolation]
 permissions:
   contents: read
 jobs:
   package-independent-consumer:
-    if: github.ref == 'refs/heads/checkpoint/madobs-ios-xcframework-preview'
+    if: github.ref == 'refs/heads/checkpoint/madobs-ios-xcframework-preview' || github.ref == 'refs/heads/checkpoint/madobs-ios-runtime-isolation'
     runs-on: macos-15
     timeout-minutes: 40
     env:
@@ -21,5 +21,11 @@ jobs:
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           python3 ios-xcframework/test_verify.py
           python3 scripts/test-ios-validation-results.py
+          python3 ios-xcframework/test_isolation.py
       - name: Internal package, device link and actual simulator XCTest
-        run: python3 ios-xcframework/verify.py
+        run: |
+          if [ "$GITHUB_REF" = refs/heads/checkpoint/madobs-ios-runtime-isolation ]; then
+            python3 ios-xcframework/verify.py --runtime-isolation
+          else
+            python3 ios-xcframework/verify.py
+          fi

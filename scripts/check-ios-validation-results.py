@@ -10,14 +10,15 @@ EXPECTED = ('testHeaderOnlyContract', 'testInstalledArchiveLocalSinkAndLifecycle
 class ResultRejected(Exception):
     pass
 
-def verify(summary, tests):
+def verify(summary, tests, expected_cases=EXPECTED):
+    count = len(expected_cases)
     if not isinstance(summary, dict) or not isinstance(tests, dict):
         raise ResultRejected('FAIL: unexpected XCTest result schema')
-    for key, expected in [('totalTestCount', 2), ('passedTests', 2), ('failedTests', 0), ('skippedTests', 0)]:
+    for key, expected in [('totalTestCount', count), ('passedTests', count), ('failedTests', 0), ('skippedTests', 0)]:
         if type(summary.get(key)) is not int:
             raise ResultRejected('FAIL: XCTest count schema mismatch')
         if summary[key] != expected:
-            raise ResultRejected('FAIL: expected exactly 2 passed, 0 failed and 0 skipped XCTest cases')
+            raise ResultRejected(f'FAIL: expected exactly {count} passed, 0 failed and 0 skipped XCTest cases')
     # Supplemental only: exact counts and named case results remain mandatory.
     # Do not infer alternate status fields/values from an absent optional field.
     if 'testStatus' in summary and not isinstance(summary['testStatus'], str):
@@ -36,7 +37,7 @@ def verify(summary, tests):
         if node.get('nodeType') == 'Test Case':
             identifier = node.get('nodeIdentifier')
             matched = None
-            for name in EXPECTED:
+            for name in expected_cases:
                 # Exact class/method identifiers, tolerating only optional empty parentheses.
                 if identifier in ('MadObsNativeTests/' + name, 'MadObsNativeTests/' + name + '()'):
                     matched = name
@@ -52,7 +53,7 @@ def verify(summary, tests):
             walk(child)
     for node in roots:
         walk(node)
-    if len(found) != 2 or sorted(found) != sorted(EXPECTED):
+    if len(found) != count or sorted(found) != sorted(expected_cases):
         raise ResultRejected('FAIL: missing, duplicated or additional XCTest case')
 
 def query(kind, path):

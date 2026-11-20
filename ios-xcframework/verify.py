@@ -1,5 +1,5 @@
 """Internal static-library XCFramework validation; no redistribution or device run."""
-import importlib.util, json, os, platform, plistlib, re, shutil, subprocess, tarfile, tempfile
+import argparse, importlib.util, json, os, platform, plistlib, re, shutil, subprocess, tarfile, tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 HEADERS=('madobs/runtime.h','madobs/observer.h','madobs/privacy.h','imobs/imobs_c.h')
@@ -49,7 +49,7 @@ def inspect(xc):
   reference=contents;result[variant]=(archive,headers)
  return result
 
-def consumer_project(consumer):
+def consumer_project(consumer, isolation=False):
  generator=load(ROOT/'ios-validation/Consumer/generate_project.py','consumer_generator')
  for number in (64,65):
   settings=generator.OBJECTS[generator.ref(number)]['buildSettings']
@@ -60,14 +60,22 @@ def consumer_project(consumer):
  project=consumer/'MadObsValidation.xcodeproj';project.mkdir()
  shutil.copytree(ROOT/'ios-validation/Consumer/MadObsValidation.xcodeproj/xcshareddata',project/'xcshareddata')
  for directory in ('App','Tests'):shutil.copytree(ROOT/'ios-validation/Consumer'/directory,consumer/directory)
- # Original fixtures remain byte-identical; this prefix only verifies compilation ABI.
+ if isolation:
+  fixture=consumer/'Tests/NativeTests.mm'
+  original=fixture.read_text()
+  tail='\n@end\n'
+  if not original.endswith(tail):raise ValueError('fixture shape')
+  helper=(ROOT/'ios-xcframework/IsolationFixture.inc').read_text()
+  fixture.write_text(helper+'\n'+original.removesuffix(tail)+'\n'
+   '- (void)testInstalledIndependentRuntimePrivacyAndStop { XCTAssertTrue(madobsRunIsolation()); }\n@end\n')
+ # This prefix only verifies compilation ABI; baseline fixtures are unchanged.
  (consumer/'Arm64Guard.h').write_text('#if !defined(__arm64__)\n#error "ARM64 required"\n#endif\n')
  # Explicit prefix applies to both device and simulator consumer compilations.
  for number in (60,61):
   generator.OBJECTS[generator.ref(number)]['buildSettings']['GCC_PREFIX_HEADER']='$(SRCROOT)/Arm64Guard.h'
  (project/'project.pbxproj').write_text(generator.project_text())
 
-def main():
+def main(isolation=False):
  if platform.system()!='Darwin' or platform.machine()!='arm64':raise ValueError('Apple ARM64 required')
  if run(['xcodebuild','-version'],'xcode-version',capture=True).strip()!='Xcode 26.2\nBuild version 17C52':raise ValueError('Xcode version')
  base=ROOT/'build/ios-xcframework';base.mkdir(parents=True,exist_ok=True)
@@ -100,7 +108,7 @@ def main():
    run(['xcodebuild','-create-xcframework',*artifacts,'-output',produced],'xcframework-create')
    relocated=work/'relocated artifact';relocated.mkdir();xc=relocated/'MadObsRuntime.xcframework';shutil.move(produced,xc)
   assert not producer.exists()
-  slices=inspect(xc);consumer=work/'independent consumer';consumer.mkdir();consumer_project(consumer)
+  slices=inspect(xc);consumer=work/'independent consumer';consumer.mkdir();consumer_project(consumer,isolation)
   common=['-project','MadObsValidation.xcodeproj','-scheme','MadObsValidation','ARCHS=arm64','ONLY_ACTIVE_ARCH=YES','-parallel-testing-enabled','NO']
   def inputs(variant):
    archive,headers=slices[variant]
@@ -117,11 +125,14 @@ def main():
    gate=load(ROOT/'scripts/check-ios-validation-results.py','results')
    summary=json.loads(run(['xcrun','xcresulttool','get','test-results','summary','--path',result],'result-summary',capture=True))
    tests=json.loads(run(['xcrun','xcresulttool','get','test-results','tests','--path',result],'result-tests',capture=True))
-   gate.verify(summary,tests)
+   expected=gate.EXPECTED+('testInstalledIndependentRuntimePrivacyAndStop',) if isolation else gate.EXPECTED
+   gate.verify(summary,tests,expected)
   finally:run(['xcrun','simctl','delete',uuid],'sim-delete')
   assert not producer.exists()
- print('PASS: relocated static XCFramework, independent device link and two named simulator tests; no device runtime or distribution')
+ print('PASS: relocated static XCFramework, independent device link and '+('three' if isolation else 'two')+' named simulator tests; no device runtime or distribution')
 if __name__=='__main__':
- try:main()
+ parser=argparse.ArgumentParser()
+ parser.add_argument('--runtime-isolation',action='store_true')
+ try:main(parser.parse_args().runtime_isolation)
  except Exception:
   print('FAIL: internal iOS XCFramework validation; no raw diagnostics');raise SystemExit(1) from None
