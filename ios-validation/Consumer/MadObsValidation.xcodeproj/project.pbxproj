@@ -1,0 +1,275 @@
+// !$*UTF8*$!
+{
+	"archiveVersion" = "1";
+	"classes" = {
+	};
+	"objectVersion" = "56";
+	"objects" = {
+		"000000000000000000000001" = {
+			"isa" = "PBXProject";
+			"attributes" = {
+				"TargetAttributes" = {
+					"000000000000000000000015" = {
+						"TestTargetID" = "000000000000000000000014";
+					};
+				};
+			};
+			"buildConfigurationList" = "000000000000000000000032";
+			"compatibilityVersion" = "Xcode 14.0";
+			"developmentRegion" = "en";
+			"hasScannedForEncodings" = "0";
+			"knownRegions" = ("en", "Base");
+			"mainGroup" = "000000000000000000000002";
+			"productRefGroup" = "000000000000000000000003";
+			"projectDirPath" = "";
+			"projectRoot" = "";
+			"targets" = ("000000000000000000000014", "000000000000000000000015");
+		};
+		"000000000000000000000002" = {
+			"isa" = "PBXGroup";
+			"children" = ("000000000000000000000004", "000000000000000000000005", "000000000000000000000003");
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000003" = {
+			"isa" = "PBXGroup";
+			"name" = "Products";
+			"children" = ("00000000000000000000000A", "00000000000000000000000B");
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000004" = {
+			"isa" = "PBXGroup";
+			"path" = "App";
+			"children" = ("000000000000000000000007");
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000005" = {
+			"isa" = "PBXGroup";
+			"path" = "Tests";
+			"children" = ("000000000000000000000008", "000000000000000000000009");
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000007" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.c.objc";
+			"path" = "main.m";
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000008" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.cpp.objcpp";
+			"path" = "NativeTests.mm";
+			"sourceTree" = "<group>";
+		};
+		"000000000000000000000009" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.c.c";
+			"path" = "APIOnly.c";
+			"sourceTree" = "<group>";
+		};
+		"00000000000000000000000A" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"includeInIndex" = "0";
+			"path" = "MadObsValidation.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"00000000000000000000000B" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.cfbundle";
+			"includeInIndex" = "0";
+			"path" = "MadObsValidationTests.xctest";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"00000000000000000000000C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "000000000000000000000007";
+		};
+		"00000000000000000000000D" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "000000000000000000000008";
+		};
+		"00000000000000000000000E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "000000000000000000000009";
+		};
+		"000000000000000000000014" = {
+			"isa" = "PBXNativeTarget";
+			"buildConfigurationList" = "000000000000000000000033";
+			"buildPhases" = ("00000000000000000000001E", "00000000000000000000001F", "000000000000000000000020");
+			"buildRules" = ();
+			"dependencies" = ();
+			"name" = "MadObsValidation";
+			"productName" = "MadObsValidation";
+			"productReference" = "00000000000000000000000A";
+			"productType" = "com.apple.product-type.application";
+		};
+		"000000000000000000000015" = {
+			"isa" = "PBXNativeTarget";
+			"buildConfigurationList" = "000000000000000000000034";
+			"buildPhases" = ("000000000000000000000022", "000000000000000000000023", "000000000000000000000024");
+			"buildRules" = ();
+			"dependencies" = ("000000000000000000000028");
+			"name" = "MadObsValidationTests";
+			"productName" = "MadObsValidationTests";
+			"productReference" = "00000000000000000000000B";
+			"productType" = "com.apple.product-type.bundle.unit-test";
+		};
+		"00000000000000000000001E" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ("00000000000000000000000C");
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"00000000000000000000001F" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"000000000000000000000020" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"000000000000000000000022" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ("00000000000000000000000D", "00000000000000000000000E");
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"000000000000000000000023" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"000000000000000000000024" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = ();
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"000000000000000000000028" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "000000000000000000000014";
+			"targetProxy" = "000000000000000000000029";
+		};
+		"000000000000000000000029" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "000000000000000000000001";
+			"proxyType" = "1";
+			"remoteGlobalIDString" = "000000000000000000000014";
+			"remoteInfo" = "MadObsValidation";
+		};
+		"000000000000000000000032" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ("00000000000000000000003C", "00000000000000000000003D");
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"000000000000000000000033" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ("00000000000000000000003E", "00000000000000000000003F");
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"000000000000000000000034" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ("000000000000000000000040", "000000000000000000000041");
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"00000000000000000000003C" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_ENABLE_CPP_EXCEPTIONS" = "YES";
+				"GCC_ENABLE_OBJC_EXCEPTIONS" = "YES";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "c++20";
+				"CLANG_CXX_LIBRARY" = "libc++";
+				"GCC_C_LANGUAGE_STANDARD" = "c11";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "15.0";
+				"SDKROOT" = "iphoneos";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"ARCHS" = "arm64";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"GCC_OPTIMIZATION_LEVEL" = "0";
+			};
+		};
+		"00000000000000000000003D" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_ENABLE_CPP_EXCEPTIONS" = "YES";
+				"GCC_ENABLE_OBJC_EXCEPTIONS" = "YES";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "c++20";
+				"CLANG_CXX_LIBRARY" = "libc++";
+				"GCC_C_LANGUAGE_STANDARD" = "c11";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "15.0";
+				"SDKROOT" = "iphoneos";
+				"SUPPORTED_PLATFORMS" = "iphoneos iphonesimulator";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"ARCHS" = "arm64";
+				"CODE_SIGNING_ALLOWED" = "NO";
+				"GCC_OPTIMIZATION_LEVEL" = "s";
+			};
+		};
+		"00000000000000000000003E" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.madobs.localvalidation";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
+			};
+		};
+		"00000000000000000000003F" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.madobs.localvalidation";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"INFOPLIST_KEY_UILaunchScreen_Generation" = "YES";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
+			};
+		};
+		"000000000000000000000040" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.madobs.localvalidation.tests";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/MadObsValidation.app/MadObsValidation";
+				"BUNDLE_LOADER" = "$(TEST_HOST)";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
+				"HEADER_SEARCH_PATHS" = ("$(inherited)", "$(MADOBS_STAGE)/include");
+				"OTHER_LDFLAGS" = ("$(inherited)", "$(MADOBS_STAGE)/lib/libmadobs_runtime.a", "-lz", "-lc++");
+			};
+		};
+		"000000000000000000000041" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.madobs.localvalidation.tests";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/MadObsValidation.app/MadObsValidation";
+				"BUNDLE_LOADER" = "$(TEST_HOST)";
+				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
+				"HEADER_SEARCH_PATHS" = ("$(inherited)", "$(MADOBS_STAGE)/include");
+				"OTHER_LDFLAGS" = ("$(inherited)", "$(MADOBS_STAGE)/lib/libmadobs_runtime.a", "-lz", "-lc++");
+			};
+		};
+	};
+	"rootObject" = "000000000000000000000001";
+}
